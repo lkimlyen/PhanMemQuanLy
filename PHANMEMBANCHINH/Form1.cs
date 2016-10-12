@@ -93,6 +93,7 @@ namespace PHANMEMBANCHINH
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Ban khoi moi viet 1000 dong code roi
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
             panel1.Show();
             panel2.Hide();
