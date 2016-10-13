@@ -557,7 +557,7 @@
                               <Value>=Fields!DonGia.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,##0đ</Format>
+                                <Format>#,##0.####đ</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
