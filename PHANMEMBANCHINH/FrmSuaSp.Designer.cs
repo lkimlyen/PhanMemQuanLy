@@ -125,7 +125,7 @@
             // 
             this.donGiaTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donGiaTextBox.Location = new System.Drawing.Point(159, 132);
-            this.donGiaTextBox.MaxLength = 9;
+            this.donGiaTextBox.MaxLength = 14;
             this.donGiaTextBox.Name = "donGiaTextBox";
             this.donGiaTextBox.Size = new System.Drawing.Size(299, 26);
             this.donGiaTextBox.TabIndex = 6;

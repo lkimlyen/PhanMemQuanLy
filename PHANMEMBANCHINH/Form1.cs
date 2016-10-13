@@ -216,7 +216,7 @@ namespace PHANMEMBANCHINH
             if (reader.HasRows)
             {
                 reader.Read();
-                txtdongia.Text = string.Format("{0:#,##0.###}",Double.Parse(reader.GetValue(2).ToString()));
+                txtdongia.Text = string.Format("{0:#,##0.####}",Decimal.Parse(reader.GetValue(2).ToString()));
                 if (!reader.IsDBNull(3))
                     txtdonvitinh.Text = reader.GetString(3).ToString();
             }
@@ -355,7 +355,7 @@ namespace PHANMEMBANCHINH
                 MessageBox.Show("Thuế không hợp lệ");
                 return;
             }
-            txtthanhtien.Text = string.Format("{0:#,##0}",dsmua.Sum(p => p.SoLuong * p.DonGia));
+            txtthanhtien.Text = string.Format("{0:#,##0.####}",dsmua.Sum(p => p.SoLuong * p.DonGia));
             Decimal n = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
             Decimal th = Decimal.Parse(numericUpDown2.Value.ToString());
             Decimal vat = th / 100;
@@ -368,19 +368,19 @@ namespace PHANMEMBANCHINH
             {
                 txtthue.Text = null;
             }
-            long tong;
+            Decimal tong;
             if (checkBox1.Checked)
             {
-                tong = (long)Math.Floor(n + gtgt);
+                tong = n + gtgt;
             }
-            else tong = (long)n;
+            else tong = n;
             txttongtien.Text = string.Format("{0:#,##0}", tong);
             Decimal y = 0;
             if (tong <= 1999999999999)
             {
                 if (tong >= 0)
                 {
-                    label16.Text = DocSo(tong) + " " + "đồng";
+                    label16.Text = DocSo(long.Parse(txttongtien.Text)) + " " + "đồng";
                 }
                 else
                     MessageBox.Show("Số không hợp lệ !");
@@ -399,8 +399,7 @@ namespace PHANMEMBANCHINH
 
 
                 txtthue.Text = null;
-                int n = int.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                int tong = n;
+                Decimal tong = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
                 txttongtien.Text = string.Format("{0:#,##0}", tong);
                 numericUpDown2.Value = 0;
                 numericUpDown2.Enabled = false;
@@ -409,13 +408,13 @@ namespace PHANMEMBANCHINH
             {
                 numericUpDown2.Value = 10;
                 numericUpDown2.Enabled = true;
-                int n = int.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                float th = float.Parse(numericUpDown2.Value.ToString());
-                float vat = th / 100;
-                int gtgt = Convert.ToInt32(n * vat);
-                int tong = n + gtgt;
+                Decimal n = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
+                Decimal th = Decimal.Parse(numericUpDown2.Value.ToString());
+                Decimal vat = th / 100;
+                Decimal gtgt = n * vat;
+                Decimal tong = n + gtgt;
                 txttongtien.Text = string.Format("{0:#,##0}", tong);
-                txtthue.Text = string.Format("{0:#,##0}", gtgt);
+                txtthue.Text = string.Format("{0:#,##0.####}", gtgt);
 
             }
         }
@@ -963,7 +962,7 @@ namespace PHANMEMBANCHINH
 
                 int id = int.Parse(listView2.SelectedItems[0].SubItems[0].Text);
                 string tensp = listView2.SelectedItems[0].SubItems[1].Text;
-                int dongia = int.Parse(listView2.SelectedItems[0].SubItems[2].Text);
+                Decimal dongia = Decimal.Parse(listView2.SelectedItems[0].SubItems[2].Text);
                 string donvitinh = listView2.SelectedItems[0].SubItems[3].Text;
 
                 FrmSuaSp sua = new FrmSuaSp(id, tensp, dongia, donvitinh);
