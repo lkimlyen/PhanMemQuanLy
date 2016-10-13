@@ -93,7 +93,6 @@ namespace PHANMEMBANCHINH
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Ban khoi moi viet 1000 dong code roi
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
             panel1.Show();
             panel2.Hide();
@@ -217,7 +216,7 @@ namespace PHANMEMBANCHINH
             if (reader.HasRows)
             {
                 reader.Read();
-                txtdongia.Text = string.Format("{0:#,##0}",Int64.Parse(reader.GetValue(2).ToString()));
+                txtdongia.Text = string.Format("{0:#,##0.###}",Double.Parse(reader.GetValue(2).ToString()));
                 if (!reader.IsDBNull(3))
                     txtdonvitinh.Text = reader.GetString(3).ToString();
             }
@@ -289,7 +288,7 @@ namespace PHANMEMBANCHINH
                             {
                                 IDSP = dv.IDSP,
                                 TenSanPham = dv.TenSanPham,
-                                DonGia = Convert.ToInt32(dv.DonGia),
+                                DonGia = Convert.ToDecimal(dv.DonGia),
                                 SoLuong = soluong,
                                 DonViTinh = dv.DonViTinh
                             });
@@ -336,8 +335,8 @@ namespace PHANMEMBANCHINH
                 get;
                 set;
             }
-            public int DonGia { get; set; }
-            public int ThanhTien { get { return SoLuong * DonGia; } }
+            public decimal DonGia { get; set; }
+            public decimal ThanhTien { get { return SoLuong * DonGia; } }
 
             public string DonViTinh { get; set; }
 
