@@ -276,8 +276,8 @@ namespace PHANMEMBANCHINH
                     }
                     else
                     {
-                        Int64 tongTienHienTai = Int64.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                        if (tongTienHienTai + Int64.Parse(txtdongia.Text.Replace(",","")) * numsoluong.Value > 2000000000)
+                        Decimal tongTienHienTai = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
+                        if (tongTienHienTai + Decimal.Parse(txtdongia.Text.Replace(",","")) * numsoluong.Value > 2000000000)
                         {
                             MessageBox.Show("Đơn hàng quá lớn, điều này sẽ gây tràn bộ nhớ. Vui lòng liên hệ nhà phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -297,8 +297,8 @@ namespace PHANMEMBANCHINH
                 }
                 else
                 {
-                    Int64 tongTienHienTai = Int64.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                    tongTienHienTai = tongTienHienTai + (soluong - hcm.SoLuong) * Int64.Parse(txtdongia.Text.Replace(",",""));
+                    Decimal tongTienHienTai = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
+                    tongTienHienTai = tongTienHienTai + (soluong - hcm.SoLuong) * Decimal.Parse(txtdongia.Text.Replace(",",""));
                     if (tongTienHienTai > 2000000000)
                     {
                         MessageBox.Show("Đơn hàng quá lớn, điều này sẽ gây tràn bộ nhớ. Vui lòng liên hệ nhà phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -356,10 +356,10 @@ namespace PHANMEMBANCHINH
                 return;
             }
             txtthanhtien.Text = string.Format("{0:#,##0}",dsmua.Sum(p => p.SoLuong * p.DonGia));
-            int n = int.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-            double th = float.Parse(numericUpDown2.Value.ToString());
-            double vat = th / 100;
-            Int64 gtgt = Convert.ToInt64(n * vat);
+            Decimal n = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
+            Decimal th = Decimal.Parse(numericUpDown2.Value.ToString());
+            Decimal vat = th / 100;
+            Decimal gtgt = n * vat;
             if (checkBox1.Checked)
             {
                 txtthue.Text = string.Format("{0:#,##0}", gtgt);
@@ -368,14 +368,14 @@ namespace PHANMEMBANCHINH
             {
                 txtthue.Text = null;
             }
-            Int64 tong;
+            long tong;
             if (checkBox1.Checked)
             {
-                tong = n + gtgt;
+                tong = (long)Math.Floor(n + gtgt);
             }
-            else tong = n;
+            else tong = (long)n;
             txttongtien.Text = string.Format("{0:#,##0}", tong);
-            Int64 y = 0;
+            Decimal y = 0;
             if (tong <= 1999999999999)
             {
                 if (tong >= 0)

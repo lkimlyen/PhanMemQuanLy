@@ -26,12 +26,12 @@ namespace PHANMEMBANCHINH
             string sql = "Delete from SANPHAM where IDSP = '" + makh + "'";
             db.ExecuteNonQuery(sql);
         }
-        public void themsanpham(string tensanpham, int dongia, string donvitinh)
+        public void themsanpham(string tensanpham, decimal dongia, string donvitinh)
         {
             string sql = string.Format("Insert Into SANPHAM Values(N'{0}',{1},N'{2}')", tensanpham, dongia, donvitinh);
             db.ExecuteNonQuery(sql);
         }
-        public void capnhatsanpham(int masp, string tensanpham, int dongia, string donvitinh)
+        public void capnhatsanpham(int masp, string tensanpham, decimal dongia, string donvitinh)
         {
             string sql = string.Format("Update SANPHAM set TenSanPham = N'{1}',DonGia ={2}, DonViTinh = N'{3}' where IDSP = '{0}'", masp, tensanpham, dongia, donvitinh);
             db.ExecuteNonQuery(sql);
