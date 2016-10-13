@@ -173,7 +173,7 @@
                 <Value>=Sum(Fields!ThanhTien.Value, "DSHoaDon")</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
-                  <Format>#,##0đ</Format>
+                  <Format>#,##0</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -557,7 +557,7 @@
                               <Value>=Fields!DonGia.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,##0.####đ</Format>
+                                <Format>#,##0.####</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -588,7 +588,7 @@
                               <Value>=Fields!ThanhTien.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,##0đ</Format>
+                                <Format>#,##0</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -605,12 +605,13 @@
                         </Border>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>3.71819cm</Height>
+              <Height>3.69173cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -829,7 +830,7 @@
         </PageBreak>
         <Top>5.87991cm</Top>
         <Left>1.4234cm</Left>
-        <Height>4.13819cm</Height>
+        <Height>4.11173cm</Height>
         <Width>17.62598cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
