@@ -380,7 +380,7 @@ namespace PHANMEMBANCHINH
             {
                 if (tong >= 0)
                 {
-                    label16.Text = DocSo(long.Parse(txttongtien.Text)) + " " + "đồng";
+                    label16.Text = DocSo(long.Parse(txttongtien.Text.ToString().Replace(",",""))) + " " + "đồng";
                 }
                 else
                     MessageBox.Show("Số không hợp lệ !");
@@ -463,9 +463,9 @@ namespace PHANMEMBANCHINH
                     NgayLap = dtpngaylap.Value,
                     NguoiMuaHang = txtnguoimuahang.Text.Trim(),
                     IDKH = int.Parse(cbotendonvi.SelectedValue.ToString()),
-                    TienHang = int.Parse(txtthanhtien.Text.Replace(",","")),
-                    TienThue = int.Parse(txtthue.Text.Replace(",", "")),
-                    TongTien = int.Parse(txttongtien.Text.Replace(",", "")),
+                    TienHang = Decimal.Parse(txtthanhtien.Text.Replace(",","")),
+                    TienThue = Decimal.Parse(txtthue.Text.Replace(",", "")),
+                    TongTien = Decimal.Parse(txttongtien.Text.Replace(",", "")),
                     HinhThucThanhToan = cbothanhtoan.Text.Trim()
 
                 };
