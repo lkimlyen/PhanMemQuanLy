@@ -726,7 +726,7 @@ namespace PHANMEMBANCHINH
                         label28.Text = Convert.ToString(t[10]);
                     }
                     else
-                                    if (txtmasothue.Text.Length > 10)
+                                    if (txtmasothue.Text.Length >= 10)
                     {
                         char[] t = txtmasothue.Text.ToCharArray();
                         label14.Text = "";
