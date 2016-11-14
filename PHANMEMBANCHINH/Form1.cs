@@ -104,6 +104,7 @@ namespace PHANMEMBANCHINH
             hienthisanpham();
             cbothanhtoan.Items.Add("Tiền mặt");
             cbothanhtoan.Items.Add("Chuyển khoản");
+            cbothanhtoan.Items.Add("TM/CK");
             cbothanhtoan.SelectedIndex = 0;
             listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -129,7 +130,6 @@ namespace PHANMEMBANCHINH
             hienthitinhtien();
             btninhoadon.Enabled = false;
             btnluu.Enabled = false;
-
         }
 
 
