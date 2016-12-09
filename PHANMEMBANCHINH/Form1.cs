@@ -466,50 +466,98 @@ namespace PHANMEMBANCHINH
             }
             else
             {
-
-
-                matutanghddv();
-                HOADON hd = new HOADON
-
+                if (cbotendonvi.SelectedIndex > 0)
                 {
 
-                    IDHD = txtmahoadon.Text.Trim(),
-                    NgayLap = dtpngaylap.Value,
-                    // Congtymuahang = cbotendonvi.SelectedIndex.ToString(),
-                    IDKH = int.Parse(cbotendonvi.SelectedValue.ToString()),
-                    NguoiMuaHang = txtnguoimuahang.Text.Trim(),
-                    TienHang = Decimal.Parse(txtthanhtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
-                    TienThue = Decimal.Parse(txtthue.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
-                    TongTien = Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
-                    HinhThucThanhToan = cbothanhtoan.Text.Trim()
+                    HOADON hd = new HOADON
 
-                };
-
-                data.HOADONs.InsertOnSubmit(hd);
-                data.SubmitChanges();
-                CHITIETHOADON cthd = null;
-                foreach (MUAHANG hcm in dsmua)
-                {
-                    cthd = new CHITIETHOADON
                     {
-                        IDHD = hd.IDHD,
-                        IDSP = hcm.IDSP,
-                        SoLuong = hcm.SoLuong,
-                        GiaBan = hcm.DonGia,
-                        ThanhTien = hcm.ThanhTien,
-                        DonViTinh = hcm.DonViTinh
+                        IDHD = txtmahoadon.Text.Trim(),
+                        NgayLap = dtpngaylap.Value,
+                        IDKH = int.Parse(cbotendonvi.SelectedValue.ToString()),
+                        //Congtymuahang = cbotendonvi.Text,
+                        NguoiMuaHang = txtnguoimuahang.Text.Trim(),
+                        TienHang = Decimal.Parse(txtthanhtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                        TienThue = Decimal.Parse(txtthue.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                        TongTien = Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                        HinhThucThanhToan = cbothanhtoan.Text.Trim()
+
                     };
-                    data.CHITIETHOADONs.InsertOnSubmit(cthd);
+
+                    data.HOADONs.InsertOnSubmit(hd);
+                    data.SubmitChanges();
+                    CHITIETHOADON cthd = null;
+                    foreach (MUAHANG hcm in dsmua)
+                    {
+                        cthd = new CHITIETHOADON
+                        {
+                            IDHD = hd.IDHD,
+                            IDSP = hcm.IDSP,
+                            SoLuong = hcm.SoLuong,
+                            GiaBan = hcm.DonGia,
+                            ThanhTien = hcm.ThanhTien,
+                            DonViTinh = hcm.DonViTinh
+                        };
+                        data.CHITIETHOADONs.InsertOnSubmit(cthd);
+
+                    }
+                    data.SubmitChanges();
+                    MessageBox.Show("Đã lưu thành công");
+
+                    //hienthidanhsachmua();
+
+                    ;
+                    matutanghddv();
+
+                    this.hoadonTableAdapter1.Fill(this.qUANLYBANHANGDataSet.HOADON);
+                }
+                else
+                {
+                    HOADON hd = new HOADON
+
+                    {
+                        IDHD = txtmahoadon.Text.Trim(),
+                        NgayLap = dtpngaylap.Value,
+                        //  IDKH = int.Parse(cbotendonvi.SelectedValue.ToString()),
+                        Congtymuahang = cbotendonvi.Text,
+                        NguoiMuaHang = txtnguoimuahang.Text.Trim(),
+                        TienHang = Decimal.Parse(txtthanhtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                        TienThue = Decimal.Parse(txtthue.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                        TongTien = Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                        HinhThucThanhToan = cbothanhtoan.Text.Trim()
+
+                    };
+
+                    data.HOADONs.InsertOnSubmit(hd);
+                    data.SubmitChanges();
+                    CHITIETHOADON cthd = null;
+                    foreach (MUAHANG hcm in dsmua)
+                    {
+                        cthd = new CHITIETHOADON
+                        {
+                            IDHD = hd.IDHD,
+                            IDSP = hcm.IDSP,
+                            SoLuong = hcm.SoLuong,
+                            GiaBan = hcm.DonGia,
+                            ThanhTien = hcm.ThanhTien,
+                            DonViTinh = hcm.DonViTinh
+                        };
+                        data.CHITIETHOADONs.InsertOnSubmit(cthd);
+
+                    }
+                    data.SubmitChanges();
+                    MessageBox.Show("Đã lưu thành công");
+
+                    //hienthidanhsachmua();
+
+                    ;
+                    matutanghddv();
+
+                    this.hoadonTableAdapter1.Fill(this.qUANLYBANHANGDataSet.HOADON);
 
                 }
-                data.SubmitChanges();
-                MessageBox.Show("Đã lưu thành công");
-
-                //hienthidanhsachmua();
-
-                ;
-                this.hoadonTableAdapter1.Fill(this.qUANLYBANHANGDataSet.HOADON);
             }
+
         }
         public void matutanghddv()
         {
@@ -633,6 +681,10 @@ namespace PHANMEMBANCHINH
             {
                 MessageBox.Show("Vui lòng chọn khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if ((txtmasothue.Text.Length > 10 || txtmasothue.Text.Length < 14) && txtmasothue.Text.Length > 0)
+            {
+                MessageBox.Show("Mã số thuế phải từ 10 - 14 ký tự!", "Có lỗi xảy ra", MessageBoxButtons.OK);
+            }
             else
             {
                 if (txtmasothue.Text == "")
@@ -640,7 +692,6 @@ namespace PHANMEMBANCHINH
                     label14.Text = "";
                     label15.Text = "";
                     label17.Text = "";
-
                     label18.Text = "";
                     label19.Text = "";
                     label20.Text = "";
@@ -661,7 +712,6 @@ namespace PHANMEMBANCHINH
                         label14.Text = Convert.ToString(t[0]);
                         label15.Text = Convert.ToString(t[1]);
                         label17.Text = Convert.ToString(t[2]);
-
                         label18.Text = Convert.ToString(t[3]);
                         label19.Text = Convert.ToString(t[4]);
                         label20.Text = Convert.ToString(t[5]);
@@ -1085,14 +1135,14 @@ namespace PHANMEMBANCHINH
         private void TimKiem(object sender, EventArgs e)
         {
             con.Open();
-                try
+            try
             {
                 //initialize a new instance of sqlcommand
                 cm = new SqlCommand();
                 //set a connection used by this instance of sqlcommand
                 cm.Connection = con;
                 //set the sql statement to execute at the data source
-                cm.CommandText = "Select * FROM KHACHHANG WHERE TenDonVi LIKE '%" + txtTimKiem.Text + "%'";
+                cm.CommandText = "Select * FROM KHACHHANG WHERE TenDonVi LIKE N'%" + txtTimKiem.Text + "%'";
 
                 //initialize a new instance of sqlDataAdapter
                 da = new SqlDataAdapter();
@@ -1126,7 +1176,15 @@ namespace PHANMEMBANCHINH
             //clossing connection
             con.Close();
 
+        }
+
+        private void masothue_keypress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
+        }
     }
 
 }

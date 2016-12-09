@@ -154,6 +154,7 @@
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(363, 26);
             this.txtdiachi.TabIndex = 4;
+            this.txtdiachi.TextChanged += new System.EventHandler(this.txtdiachi_TextChanged);
             this.txtdiachi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keypresssotaikhoan);
             // 
             // txtmasothue

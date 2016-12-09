@@ -125,5 +125,10 @@ namespace PHANMEMBANCHINH
         {
 
         }
+
+        private void txtdiachi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
