@@ -181,6 +181,9 @@ namespace PHANMEMBANCHINH
         }
         private void comselect(object sender, EventArgs e)
         {
+            this.cbotendonvi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbotendonvi.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+
             if (cbotendonvi.SelectedValue != null)
             {
                 sqlConn = db.data();
@@ -681,7 +684,7 @@ namespace PHANMEMBANCHINH
             {
                 MessageBox.Show("Vui lòng chọn khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if ((txtmasothue.Text.Length > 10 || txtmasothue.Text.Length < 14) && txtmasothue.Text.Length > 0)
+            else if ((txtmasothue.Text.Length < 10 || txtmasothue.Text.Length > 14) && txtmasothue.Text.Length > 0)
             {
                 MessageBox.Show("Mã số thuế phải từ 10 - 14 ký tự!", "Có lỗi xảy ra", MessageBoxButtons.OK);
             }

@@ -557,7 +557,7 @@
                               <Value>=FormatCurrency(Fields!DonGia.Value,2)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,0.0 '₫';#,0.0 '₫'-</Format>
+                                <Format>#,0.0 '₫';(#,0.0 '₫')</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -575,7 +575,6 @@
                         <rd:FormatSymbolCulture>vi-VN</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -590,7 +589,7 @@
                               <Value>=Fields!ThanhTien.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,0.00</Format>
+                                <Format>#,0.00 '₫';(#,0.00 '₫')</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -605,6 +604,7 @@
                           <Color>White</Color>
                           <Style>None</Style>
                         </Border>
+                        <rd:FormatSymbolCulture>vi-VN</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -2439,6 +2439,7 @@ lOM6wmj0ZR+y3/5XkPrfIf8AQJodGX7Pf7F8h/0CaHRl+z3+xfIftmrmKq9vtckVZrCLaTTu+gml0Zfs
 zwZTzn4Z+GZ4MzwZXJn4ZTwZngzxn4Zbej4TPBmeDC+DM8GZ4PhM8GU8GU8GU8GU8GU8GU8GU8GU8GU8GU8GI6DoyngyngyngyngyngyngyngyngyngyngyngyngzxlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBlPBld8p4Mp4Mp4Mp4Mp4Mp4Mp4P/lv/2Q==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <Language>vi-VN</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>f83da2f1-3112-433f-9980-a93ad1078fff</rd:ReportID>
