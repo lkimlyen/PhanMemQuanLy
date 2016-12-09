@@ -259,9 +259,9 @@ namespace PHANMEMBANCHINH
             }
             else
             {
-                int soluong;
+                decimal soluong;
 
-                if (!int.TryParse(numsoluong.Value.ToString(), out soluong))
+                if (!decimal.TryParse(numsoluong.Value.ToString(), out soluong))
                 {
                     MessageBox.Show("Số lượng không hợp lệ");
                     return;
@@ -330,7 +330,7 @@ namespace PHANMEMBANCHINH
         {
             public int IDSP { get; set; }
             public string TenSanPham { get; set; }
-            public int SoLuong
+            public decimal SoLuong
             {
                 get;
                 set;

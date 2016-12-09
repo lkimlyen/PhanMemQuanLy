@@ -120,3 +120,31 @@ C:\Users\yenluong\Desktop\PHANMEMBANCHINH_FINAL\PHANMEMBANCHINH_FINAL\PHANMEMBAN
 \\vmware-host\Shared Folders\Desktop\PHANMEMBANCHINH_FINAL_sualan2_sua_dtp\PHANMEMBANCHINH_FINAL\PHANMEMBANCHINH_FINAL\PHANMEMBANCHINH\obj\Debug\RdlCompile.cache
 \\vmware-host\Shared Folders\Desktop\PHANMEMBANCHINH_FINAL_sualan2_sua_dtp\PHANMEMBANCHINH_FINAL\PHANMEMBANCHINH_FINAL\PHANMEMBANCHINH\obj\Debug\RdlCompile.compiled
 \\vmware-host\Shared Folders\Desktop\PHANMEMBANCHINH_FINAL_sualan2_sua_dtp\PHANMEMBANCHINH_FINAL\PHANMEMBANCHINH_FINAL\PHANMEMBANCHINH\bin\Debug\PHANMEMBANCHINH.pdb
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\PHANMEMBANCHINH.exe.config
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.exe
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.pdb
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\PHANMEMBANCHINH.exe
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\PHANMEMBANCHINH.pdb
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.csprojResolveAssemblyReference.cache
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.FrmSuaKH.resources
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.FrmSuaSp.resources
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.FrmThemSP.resources
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.Frminhoadon.resources
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.Form1.resources
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.FrmThemKH.resources
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.Properties.Resources.resources
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\PHANMEMBANCHINH.csproj.GenerateResource.Cache
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\RdlCompile.cache
+D:\SourceTree\C#\PhanMemQuanLy\PHANMEMBANCHINH\obj\Debug\RdlCompile.compiled
