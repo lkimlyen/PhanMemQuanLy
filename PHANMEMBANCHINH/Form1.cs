@@ -209,6 +209,8 @@ namespace PHANMEMBANCHINH
 
         private void saphamse(object sender, EventArgs e)
         {
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
             sqlConn = db.data();
             sqlConn.Open();
             cm = new SqlCommand("Select * from SANPHAM where IDSP = '" + cbosanpham.SelectedValue.ToString() + "'", sqlConn);
@@ -216,7 +218,8 @@ namespace PHANMEMBANCHINH
             if (reader.HasRows)
             {
                 reader.Read();
-                txtdongia.Text = string.Format("{0:#,##0.####}",Decimal.Parse(reader.GetValue(2).ToString()));
+                //txtdongia.Text = string.Format("{0:#.##0,####}",Decimal.Parse(reader.GetValue(2).ToString()));
+                txtdongia.Text = String.Format(info, "{0:c}", Decimal.Parse(reader.GetValue(2).ToString()));
                 if (!reader.IsDBNull(3))
                     txtdonvitinh.Text = reader.GetString(3).ToString();
             }
@@ -266,7 +269,7 @@ namespace PHANMEMBANCHINH
                     MessageBox.Show("Số lượng không hợp lệ");
                     return;
                 }
-
+                var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
                 MUAHANG hcm = dsmua.SingleOrDefault(p => p.IDSP == int.Parse(cbosanpham.SelectedValue.ToString()));
                 if (hcm == null)
                 {
@@ -277,7 +280,7 @@ namespace PHANMEMBANCHINH
                     else
                     {
                         Decimal tongTienHienTai = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                        if (tongTienHienTai + Decimal.Parse(txtdongia.Text.Replace(",","")) * numsoluong.Value > 2000000000)
+                        if (tongTienHienTai + Decimal.Parse(txtdongia.Text.Replace(".","").Replace(",",".").Replace("₫", "")) * numsoluong.Value > 2000000000)
                         {
                             MessageBox.Show("Đơn hàng quá lớn, điều này sẽ gây tràn bộ nhớ. Vui lòng liên hệ nhà phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -298,7 +301,7 @@ namespace PHANMEMBANCHINH
                 else
                 {
                     Decimal tongTienHienTai = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                    tongTienHienTai = tongTienHienTai + (soluong - hcm.SoLuong) * Decimal.Parse(txtdongia.Text.Replace(",",""));
+                    tongTienHienTai = tongTienHienTai + (soluong - hcm.SoLuong) * Decimal.Parse(txtdongia.Text.Replace(".", "").Replace(",", ".").Replace("₫", ""));
                     if (tongTienHienTai > 2000000000)
                     {
                         MessageBox.Show("Đơn hàng quá lớn, điều này sẽ gây tràn bộ nhớ. Vui lòng liên hệ nhà phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -337,7 +340,7 @@ namespace PHANMEMBANCHINH
             }
             public decimal DonGia { get; set; }
             public decimal ThanhTien { get { return SoLuong * DonGia; } }
-
+           
             public string DonViTinh { get; set; }
 
         }
@@ -349,20 +352,23 @@ namespace PHANMEMBANCHINH
         {
             btninhoadon.Enabled = true;
 
-            int thue;
-            if (!int.TryParse(numericUpDown2.Value.ToString(), out thue))
+            decimal thue;
+            if (!decimal.TryParse(numericUpDown2.Value.ToString(), out thue))
             {
                 MessageBox.Show("Thuế không hợp lệ");
                 return;
             }
-            txtthanhtien.Text = string.Format("{0:#,##0.####}",dsmua.Sum(p => p.SoLuong * p.DonGia));
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+           
+            txtthanhtien.Text = String.Format(info, "{0:c}", dsmua.Sum(p => p.SoLuong * p.DonGia));
             Decimal n = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
             Decimal th = Decimal.Parse(numericUpDown2.Value.ToString());
             Decimal vat = th / 100;
             Decimal gtgt = n * vat;
             if (checkBox1.Checked)
             {
-                txtthue.Text = string.Format("{0:#,##0}", gtgt);
+
+                txtthue.Text = String.Format(info, "{0:c}", gtgt);
             }
             else
             {
@@ -374,13 +380,13 @@ namespace PHANMEMBANCHINH
                 tong = n + gtgt;
             }
             else tong = n;
-            txttongtien.Text = string.Format("{0:#,##0}", tong);
+            txttongtien.Text = String.Format(info, "{0:c}", tong);
             Decimal y = 0;
             if (tong <= 1999999999999)
             {
                 if (tong >= 0)
                 {
-                    label16.Text = DocSo(long.Parse(txttongtien.Text.ToString().Replace(",",""))) + " " + "đồng";
+                    label16.Text = ConvertDecimalToString(tong);
                 }
                 else
                     MessageBox.Show("Số không hợp lệ !");
@@ -394,13 +400,17 @@ namespace PHANMEMBANCHINH
 
         private void check(object sender, EventArgs e)
         {
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
             if (checkBox1.Checked == false)
             {
-
+               
+                //var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 
                 txtthue.Text = null;
                 Decimal tong = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                txttongtien.Text = string.Format("{0:#,##0}", tong);
+                txttongtien.Text = String.Format(info, "{0:c}", tong);
+                
                 numericUpDown2.Value = 0;
                 numericUpDown2.Enabled = false;
             }
@@ -413,8 +423,8 @@ namespace PHANMEMBANCHINH
                 Decimal vat = th / 100;
                 Decimal gtgt = n * vat;
                 Decimal tong = n + gtgt;
-                txttongtien.Text = string.Format("{0:#,##0}", tong);
-                txtthue.Text = string.Format("{0:#,##0.####}", gtgt);
+                txttongtien.Text = String.Format(info, "{0:c}", tong);
+                txtthue.Text = String.Format(info, "{0:c}", gtgt);
 
             }
         }
@@ -463,9 +473,9 @@ namespace PHANMEMBANCHINH
                     NgayLap = dtpngaylap.Value,
                     NguoiMuaHang = txtnguoimuahang.Text.Trim(),
                     IDKH = int.Parse(cbotendonvi.SelectedValue.ToString()),
-                    TienHang = Decimal.Parse(txtthanhtien.Text.Replace(",","")),
-                    TienThue = Decimal.Parse(txtthue.Text.Replace(",", "")),
-                    TongTien = Decimal.Parse(txttongtien.Text.Replace(",", "")),
+                    TienHang = Decimal.Parse(txtthanhtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                    TienThue = Decimal.Parse(txtthue.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
+                    TongTien = Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
                     HinhThucThanhToan = cbothanhtoan.Text.Trim()
 
                 };
@@ -533,91 +543,83 @@ namespace PHANMEMBANCHINH
         {
 
         }
-        private string chuso(int so)
+      
+      
+        public string ConvertDecimalToString(decimal number)
         {
-            string kq = "";
-            switch (so)
+            string s = number.ToString("#");
+            string[] so = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
+            string[] hang = new string[] { "", "nghìn", "triệu", "tỷ" };
+            int i, j, donvi, chuc, tram;
+            string str = " ";
+            bool booAm = false;
+            decimal decS = 0;
+            //Tung addnew
+            try
             {
-                case 0: kq = "không"; break;
-                case 1: kq = "một"; break;
-                case 2: kq = "hai"; break;
-                case 3: kq = "ba"; break;
-                case 4: kq = "bốn"; break;
-                case 5: kq = "năm"; break;
-                case 6: kq = "sáu"; break;
-                case 7: kq = "bảy"; break;
-                case 8: kq = "tám"; break;
-                case 9: kq = "chín"; break;
+                decS = Convert.ToDecimal(s.ToString());
             }
-            return kq;
-        }
-
-        public string DocSo(Int64 num)
-        {
-            string sNum = num.ToString(), temp = "";
-            int len = sNum.Length, nhomso;
-            string str = "";
-            int i = 1;
-            while (i <= len)
+            catch
             {
-                str = str + " " + chuso(int.Parse(sNum.Substring(i - 1, 1)));
-                nhomso = (int)((len - i) % 9);
-                if (i == len) break;
-                if (nhomso == 0)
+            }
+            if (decS < 0)
+            {
+                decS = -decS;
+                s = decS.ToString();
+                booAm = true;
+            }
+            i = s.Length;
+            if (i == 0)
+                str = so[0] + str;
+            else
+            {
+                j = 0;
+                while (i > 0)
                 {
-                    str += " tỷ";
-                    for (int j = 0; j < 3; j++)
-                    {
-                        temp = sNum.Substring(i, 3);
-                        if (temp == "000")
-                            i += 3;
-                    }
-
-                }
-                else
-                    if (nhomso == 6)
-                {
-                    str += " triệu";
-                    for (int j = 0; j < 2; j++)
-                    {
-                        temp = sNum.Substring(i, 3);
-                        if (temp == "000")
-                            i += 3;
-                    }
-                }
-                else
-                        if (nhomso == 3)
-                {
-                    str += " nghìn";
-                    temp = sNum.Substring(i, 3);
-                    if (temp == "000")
-                        i += 3;
-                }
-                else
-                {
-                    nhomso = (int)((len - i) % 3);
-                    if (nhomso == 2)
-                        str += " trăm";
+                    donvi = Convert.ToInt32(s.Substring(i - 1, 1));
+                    i--;
+                    if (i > 0)
+                        chuc = Convert.ToInt32(s.Substring(i - 1, 1));
                     else
-                        if (nhomso == 1)
-                        str += " mươi";
+                        chuc = -1;
+                    i--;
+                    if (i > 0)
+                        tram = Convert.ToInt32(s.Substring(i - 1, 1));
+                    else
+                        tram = -1;
+                    i--;
+                    if ((donvi > 0) || (chuc > 0) || (tram > 0) || (j == 3))
+                        str = hang[j] + str;
+                    j++;
+                    if (j > 3) j = 1;
+                    if ((donvi == 1) && (chuc > 1))
+                        str = "một " + str;
+                    else
+                    {
+                        if ((donvi == 5) && (chuc > 0))
+                            str = "lăm " + str;
+                        else if (donvi > 0)
+                            str = so[donvi] + " " + str;
+                    }
+                    if (chuc < 0)
+                        break;
+                    else
+                    {
+                        if ((chuc == 0) && (donvi > 0)) str = "lẻ " + str;
+                        if (chuc == 1) str = "mười " + str;
+                        if (chuc > 1) str = so[chuc] + " mươi " + str;
+                    }
+                    if (tram < 0) break;
+                    else
+                    {
+                        if ((tram > 0) || (chuc > 0) || (donvi > 0)) str = so[tram] + " trăm " + str;
+                    }
+                    str = " " + str;
                 }
-                i++;
             }
-            str = str.Replace("không mươi không", "");
-            str = str.Replace("không mươi ", "linh");
-            str = str.Replace("mươi không", "mươi");
-            str = str.Replace("một mươi", "mười");
-            str = str.Replace("mươi bốn", "mươi tư");
-            str = str.Replace("linh bốn", "linh tư");
-            str = str.Replace("mươi một", "mươi mốt");
-            str = str.Replace("mươi năm", "mươi lăm");
-            str = str.Replace("mười năm", "mười lăm");
-            str = str.Trim();
-            return str;
+            if (booAm) str = "Âm " + str;
+            return str + "đồng";
         }
-
-
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -747,8 +749,12 @@ namespace PHANMEMBANCHINH
                     }
 
                 }
+               
 
-                Frminhoadon inhd = new Frminhoadon(txtnguoimuahang.Text, cbotendonvi.Text, txtdiachi.Text, txtmasothue.Text, txtsotaikhoan.Text, cbothanhtoan.Text, txtthue.Text, txttongtien.Text, dtpngaylap.Value, label16.Text, numericUpDown2.Value.ToString(), label14.Text, label15.Text, label17.Text, label18.Text, label19.Text, label20.Text, label21.Text, label22.Text, label23.Text, label24.Text, label25.Text, label26.Text, label27.Text, label28.Text, dsmua);
+                
+
+
+                Frminhoadon inhd = new Frminhoadon(txtnguoimuahang.Text, cbotendonvi.Text, txtdiachi.Text, txtmasothue.Text, txtsotaikhoan.Text, cbothanhtoan.Text, txtthue.Text, txttongtien.Text, dtpngaylap.Value, label16.Text, numericUpDown2.Value.ToString(), label14.Text, label15.Text, label17.Text, label18.Text, label19.Text, label20.Text, label21.Text, label22.Text, label23.Text, label24.Text, label25.Text, label26.Text, label27.Text, label28.Text, dsmua,txtthanhtien.Text);
                 inhd.ShowDialog();
             }
         }

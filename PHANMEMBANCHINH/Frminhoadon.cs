@@ -17,9 +17,10 @@ namespace PHANMEMBANCHINH
     {
 
 
-        public Frminhoadon(string nguoimuahang, string tendonvi, string diachi, string masothue, string sotaikhoan, string hinhthucthanhtoan, string tienthue, string tongtien, DateTime ngaymua, string chu, string thue, string m, string h, string b, string bo, string n, string s, string bam, string t, string c, string mu, string mm, string mh, string mbam, string mbo,List<PHANMEMBANCHINH.Form1.MUAHANG> mua)
+        public Frminhoadon(string nguoimuahang, string tendonvi, string diachi, string masothue, string sotaikhoan, string hinhthucthanhtoan, string tienthue, string tongtien, DateTime ngaymua, string chu, string thue, string m, string h, string b, string bo, string n, string s, string bam, string t, string c, string mu, string mm, string mh, string mbam, string mbo,List<PHANMEMBANCHINH.Form1.MUAHANG> mua, string tienhang)
         {
             InitializeComponent();
+
             NguoiMuaHang = nguoimuahang;
             muahang = mua;
             TenDonVi = tendonvi;
@@ -31,7 +32,7 @@ namespace PHANMEMBANCHINH
             TongTien = tongtien;
             NgayLap = ngaymua;
             SoVietBangChu = chu;
-            
+            TienHang = tienhang;
 
             Thue = thue;
             mot = m;
@@ -82,10 +83,11 @@ namespace PHANMEMBANCHINH
         public string mhai { get; set; }
         public string mba { get; set; }
         public string mbon { get; set; }
+        public string TienHang { get; set; }
         private void Frminhoadon_Load(object sender, EventArgs e)
         {
 
-            ReportParameter[] param = new ReportParameter[25];
+            ReportParameter[] param = new ReportParameter[26];
             param[0] = new ReportParameter("NguoiMuaHang", NguoiMuaHang);
             param[1] = new ReportParameter("TenDonVi", TenDonVi);
             param[2] = new ReportParameter("DiaChi", DiaChi);
@@ -111,6 +113,7 @@ namespace PHANMEMBANCHINH
             param[22] = new ReportParameter("mhai", mhai);
             param[23] = new ReportParameter("mba", mba);
             param[24] = new ReportParameter("mbon", mbon);
+            param[25] = new ReportParameter("TienHang", TienHang);
 
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DSHoaDon",muahang));

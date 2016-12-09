@@ -170,7 +170,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!ThanhTien.Value, "DSHoaDon")</Value>
+                <Value>=Parameters!TienHang.Value</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <Format>#,##0</Format>
@@ -543,6 +543,7 @@
                         </Border>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -554,10 +555,9 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DonGia.Value</Value>
+                              <Value>= Fields!DonGia.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,##0.####</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -588,7 +588,6 @@
                               <Value>=Fields!ThanhTien.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,##0</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -605,13 +604,12 @@
                         </Border>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>3.69173cm</Height>
+              <Height>3.77111cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -719,6 +717,7 @@
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>8pt</FontSize>
+                                <Format>#,#</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -746,7 +745,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value EvaluationMode="Constant" />
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -830,7 +829,7 @@
         </PageBreak>
         <Top>5.87991cm</Top>
         <Left>1.4234cm</Left>
-        <Height>4.11173cm</Height>
+        <Height>4.19111cm</Height>
         <Width>17.62598cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
