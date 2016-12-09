@@ -17,6 +17,7 @@ namespace PHANMEMBANCHINH
         SqlConnection sqlConn;
 
         SqlCommand cm;
+        SqlDataAdapter da;
 
         public Form1()
         {
@@ -280,7 +281,7 @@ namespace PHANMEMBANCHINH
                     else
                     {
                         Decimal tongTienHienTai = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                        if (tongTienHienTai + Decimal.Parse(txtdongia.Text.Replace(".","").Replace(",",".").Replace("₫", "")) * numsoluong.Value > 2000000000)
+                        if (tongTienHienTai + Decimal.Parse(txtdongia.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")) * numsoluong.Value > 2000000000)
                         {
                             MessageBox.Show("Đơn hàng quá lớn, điều này sẽ gây tràn bộ nhớ. Vui lòng liên hệ nhà phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -340,7 +341,7 @@ namespace PHANMEMBANCHINH
             }
             public decimal DonGia { get; set; }
             public decimal ThanhTien { get { return SoLuong * DonGia; } }
-           
+
             public string DonViTinh { get; set; }
 
         }
@@ -359,7 +360,7 @@ namespace PHANMEMBANCHINH
                 return;
             }
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
-           
+
             txtthanhtien.Text = String.Format(info, "{0:c}", dsmua.Sum(p => p.SoLuong * p.DonGia));
             Decimal n = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
             Decimal th = Decimal.Parse(numericUpDown2.Value.ToString());
@@ -404,13 +405,13 @@ namespace PHANMEMBANCHINH
 
             if (checkBox1.Checked == false)
             {
-               
+
                 //var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 
                 txtthue.Text = null;
                 Decimal tong = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
                 txttongtien.Text = String.Format(info, "{0:c}", tong);
-                
+
                 numericUpDown2.Value = 0;
                 numericUpDown2.Enabled = false;
             }
@@ -465,20 +466,25 @@ namespace PHANMEMBANCHINH
             }
             else
             {
+
+
                 matutanghddv();
                 HOADON hd = new HOADON
+
                 {
 
                     IDHD = txtmahoadon.Text.Trim(),
                     NgayLap = dtpngaylap.Value,
-                    NguoiMuaHang = txtnguoimuahang.Text.Trim(),
+                    // Congtymuahang = cbotendonvi.SelectedIndex.ToString(),
                     IDKH = int.Parse(cbotendonvi.SelectedValue.ToString()),
+                    NguoiMuaHang = txtnguoimuahang.Text.Trim(),
                     TienHang = Decimal.Parse(txtthanhtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
                     TienThue = Decimal.Parse(txtthue.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
                     TongTien = Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")),
                     HinhThucThanhToan = cbothanhtoan.Text.Trim()
 
                 };
+
                 data.HOADONs.InsertOnSubmit(hd);
                 data.SubmitChanges();
                 CHITIETHOADON cthd = null;
@@ -543,8 +549,8 @@ namespace PHANMEMBANCHINH
         {
 
         }
-      
-      
+
+
         public string ConvertDecimalToString(decimal number)
         {
             string s = number.ToString("#");
@@ -749,12 +755,12 @@ namespace PHANMEMBANCHINH
                     }
 
                 }
-               
-
-                
 
 
-                Frminhoadon inhd = new Frminhoadon(txtnguoimuahang.Text, cbotendonvi.Text, txtdiachi.Text, txtmasothue.Text, txtsotaikhoan.Text, cbothanhtoan.Text, txtthue.Text, txttongtien.Text, dtpngaylap.Value, label16.Text, numericUpDown2.Value.ToString(), label14.Text, label15.Text, label17.Text, label18.Text, label19.Text, label20.Text, label21.Text, label22.Text, label23.Text, label24.Text, label25.Text, label26.Text, label27.Text, label28.Text, dsmua,txtthanhtien.Text);
+
+
+
+                Frminhoadon inhd = new Frminhoadon(txtnguoimuahang.Text, cbotendonvi.Text, txtdiachi.Text, txtmasothue.Text, txtsotaikhoan.Text, cbothanhtoan.Text, txtthue.Text, txttongtien.Text, dtpngaylap.Value, label16.Text, numericUpDown2.Value.ToString(), label14.Text, label15.Text, label17.Text, label18.Text, label19.Text, label20.Text, label21.Text, label22.Text, label23.Text, label24.Text, label25.Text, label26.Text, label27.Text, label28.Text, dsmua, txtthanhtien.Text);
                 inhd.ShowDialog();
             }
         }
@@ -1023,11 +1029,13 @@ namespace PHANMEMBANCHINH
             btnluu.Enabled = false;
             btninhoadon.Enabled = false;
             dsmua.Clear();
+            dataGridView2.DataSource = null;
+
         }
 
         private void keypressCBTenDonVi(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            //e.Handled = true;
         }
 
         private void keyPressTenSanPham(object sender, KeyPressEventArgs e)
@@ -1070,6 +1078,55 @@ namespace PHANMEMBANCHINH
                 e.Handled = true;
             }
         }
+
+        private void dgv_dataerror(object sender, DataGridViewDataErrorEventArgs e)
+        { }
+
+        private void TimKiem(object sender, EventArgs e)
+        {
+            con.Open();
+                try
+            {
+                //initialize a new instance of sqlcommand
+                cm = new SqlCommand();
+                //set a connection used by this instance of sqlcommand
+                cm.Connection = con;
+                //set the sql statement to execute at the data source
+                cm.CommandText = "Select * FROM KHACHHANG WHERE TenDonVi LIKE '%" + txtTimKiem.Text + "%'";
+
+                //initialize a new instance of sqlDataAdapter
+                da = new SqlDataAdapter();
+                //set the sql statement or stored procedure to execute at the data source
+                da.SelectCommand = cm;
+                //initialize a new instance of DataTable
+                dt = new DataTable();
+                //add or resfresh rows in the certain range in the datatable to match those in the data source.
+                da.Fill(dt);
+                //add the data source to display the data in the ListView
+                listView1.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ListViewItem lvi = listView1.Items.Add(dt.Rows[i][0].ToString());
+                    lvi.SubItems.Add(dt.Rows[i][1].ToString());
+                    lvi.SubItems.Add(dt.Rows[i][2].ToString());
+                    lvi.SubItems.Add(dt.Rows[i][3].ToString());
+                    lvi.SubItems.Add(dt.Rows[i][4].ToString());
+                    lvi.SubItems.Add(dt.Rows[i][5].ToString());
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //catching error 
+                MessageBox.Show(ex.Message);
+            }
+            //release all resources used by the component
+            da.Dispose();
+            //dr.Close();
+            //clossing connection
+            con.Close();
+
+            }
     }
 
 }

@@ -543,7 +543,6 @@
                         </Border>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -555,9 +554,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>= Fields!DonGia.Value</Value>
+                              <Value>=FormatCurrency(Fields!DonGia.Value,2)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <Format>#,0.0 '₫';#,0.0 '₫'-</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -572,8 +572,10 @@
                           <Color>White</Color>
                           <Style>None</Style>
                         </Border>
+                        <rd:FormatSymbolCulture>vi-VN</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -588,6 +590,7 @@
                               <Value>=Fields!ThanhTien.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <Format>#,0.00</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>

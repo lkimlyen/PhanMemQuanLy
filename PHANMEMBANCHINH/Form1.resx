@@ -178,7 +178,7 @@
   <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACoAAAAlCAYAAAA0lXuOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAADNJREFUWEft0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG
+        vAAADrwBlbxySQAAADNJREFUWEft0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG
         DBg4BgYYbQABNozTswAAAABJRU5ErkJggg==
 </value>
   </data>
@@ -235,14 +235,14 @@
   <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACoAAAAlCAYAAAA0lXuOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAADNJREFUWEft0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG
+        vAAADrwBlbxySQAAADNJREFUWEft0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG
         DBg4BgYYbQABNozTswAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="hinh1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAACkhJREFUeF7tnXnsXUMUx5+1lpL+gVhL7WsEIYRqLUFEpKSEWEpjDbHV1pYgEok/
+        DAAACwwBP0AiyAAACkhJREFUeF7tnXnsXUMUx5+1lpL+gVhL7WsEIYRqLUFEpKSEWEpjDbHV1pYgEok/
         UCR2GlpL0lQJsS9FLdEiEhIRidirWq2l9u182t+t19f33j1zZ+7cuXdmkpMub9ZzvnNm7pwzZ1otd2mQ
         VDVS6Eqhh4TeEfpa6Eehv4X+TWTEA3gG7+DhHKEHhSYKjRCC10EkOjJa6HGhX5OAjQRsMyF+EV7PEDpa
         aPUqkLCuNDpe6NskdG9C7wWYuSKDS4XW8QGElaWRM4UWJMFXLvhOQMwXmZwmtFJZQNhKKn4rCT44wXcC
@@ -295,9 +295,6 @@
   <metadata name="qUANLYBANHANGDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
-  <metadata name="qUANLYBANHANGDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
   <metadata name="hOADONBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>501, 17</value>
   </metadata>
@@ -309,6 +306,9 @@
   </metadata>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="qUANLYBANHANGDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
   </metadata>
   <metadata name="hoadonTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>104, 17</value>

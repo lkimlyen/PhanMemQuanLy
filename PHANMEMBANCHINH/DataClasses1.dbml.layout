@@ -8,12 +8,6 @@
         <elementListCompartment Id="761eeff6-7990-4d39-ae58-e4ca0bb9bf45" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c230f34b-3331-4a94-a1f3-cca7648e22f7" absoluteBounds="0.75, 3.75, 2, 2.347801106770834">
-      <DataClassMoniker Name="/DataClasses1DataContext/HOADON" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b52c382c-5f9c-467c-a16b-2d54070738ff" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="02f1c454-c9d2-4a94-bdd5-eeb0f08f4157" absoluteBounds="3.75, 3.75, 2, 1.9631982421875005">
       <DataClassMoniker Name="/DataClasses1DataContext/KHACHHANG" />
       <nestedChildShapes>
@@ -24,6 +18,12 @@
       <DataClassMoniker Name="/DataClasses1DataContext/CHITIETHOADON" />
       <nestedChildShapes>
         <elementListCompartment Id="042c9acc-411c-4638-b03a-53e514481811" absoluteBounds="3.89, 3.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d0216e3-6a55-4e6d-91ce-15b3b34bffe7" absoluteBounds="1.75, 4.25, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataClasses1DataContext/HOADON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="407ca1db-5090-4074-b94b-998dd3400dd0" absoluteBounds="1.7650000000000001, 4.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

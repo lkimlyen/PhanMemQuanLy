@@ -33,15 +33,15 @@ namespace PHANMEMBANCHINH
     partial void InsertSANPHAM(SANPHAM instance);
     partial void UpdateSANPHAM(SANPHAM instance);
     partial void DeleteSANPHAM(SANPHAM instance);
-    partial void InsertHOADON(HOADON instance);
-    partial void UpdateHOADON(HOADON instance);
-    partial void DeleteHOADON(HOADON instance);
     partial void InsertKHACHHANG(KHACHHANG instance);
     partial void UpdateKHACHHANG(KHACHHANG instance);
     partial void DeleteKHACHHANG(KHACHHANG instance);
     partial void InsertCHITIETHOADON(CHITIETHOADON instance);
     partial void UpdateCHITIETHOADON(CHITIETHOADON instance);
     partial void DeleteCHITIETHOADON(CHITIETHOADON instance);
+    partial void InsertHOADON(HOADON instance);
+    partial void UpdateHOADON(HOADON instance);
+    partial void DeleteHOADON(HOADON instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -82,14 +82,6 @@ namespace PHANMEMBANCHINH
 			}
 		}
 		
-		public System.Data.Linq.Table<HOADON> HOADONs
-		{
-			get
-			{
-				return this.GetTable<HOADON>();
-			}
-		}
-		
 		public System.Data.Linq.Table<KHACHHANG> KHACHHANGs
 		{
 			get
@@ -103,6 +95,14 @@ namespace PHANMEMBANCHINH
 			get
 			{
 				return this.GetTable<CHITIETHOADON>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HOADON> HOADONs
+		{
+			get
+			{
+				return this.GetTable<HOADON>();
 			}
 		}
 	}
@@ -216,236 +216,6 @@ namespace PHANMEMBANCHINH
 					this._DonViTinh = value;
 					this.SendPropertyChanged("DonViTinh");
 					this.OnDonViTinhChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOADON")]
-	public partial class HOADON : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _IDHD;
-		
-		private System.Nullable<int> _IDKH;
-		
-		private System.Nullable<System.DateTime> _NgayLap;
-		
-		private System.Nullable<decimal> _TienHang;
-		
-		private System.Nullable<decimal> _TienThue;
-		
-		private System.Nullable<decimal> _TongTien;
-		
-		private string _NguoiMuaHang;
-		
-		private string _HinhThucThanhToan;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDHDChanging(string value);
-    partial void OnIDHDChanged();
-    partial void OnIDKHChanging(System.Nullable<int> value);
-    partial void OnIDKHChanged();
-    partial void OnNgayLapChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgayLapChanged();
-    partial void OnTienHangChanging(System.Nullable<decimal> value);
-    partial void OnTienHangChanged();
-    partial void OnTienThueChanging(System.Nullable<decimal> value);
-    partial void OnTienThueChanged();
-    partial void OnTongTienChanging(System.Nullable<decimal> value);
-    partial void OnTongTienChanged();
-    partial void OnNguoiMuaHangChanging(string value);
-    partial void OnNguoiMuaHangChanged();
-    partial void OnHinhThucThanhToanChanging(string value);
-    partial void OnHinhThucThanhToanChanged();
-    #endregion
-		
-		public HOADON()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDHD", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string IDHD
-		{
-			get
-			{
-				return this._IDHD;
-			}
-			set
-			{
-				if ((this._IDHD != value))
-				{
-					this.OnIDHDChanging(value);
-					this.SendPropertyChanging();
-					this._IDHD = value;
-					this.SendPropertyChanged("IDHD");
-					this.OnIDHDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDKH", DbType="Int")]
-		public System.Nullable<int> IDKH
-		{
-			get
-			{
-				return this._IDKH;
-			}
-			set
-			{
-				if ((this._IDKH != value))
-				{
-					this.OnIDKHChanging(value);
-					this.SendPropertyChanging();
-					this._IDKH = value;
-					this.SendPropertyChanged("IDKH");
-					this.OnIDKHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayLap", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NgayLap
-		{
-			get
-			{
-				return this._NgayLap;
-			}
-			set
-			{
-				if ((this._NgayLap != value))
-				{
-					this.OnNgayLapChanging(value);
-					this.SendPropertyChanging();
-					this._NgayLap = value;
-					this.SendPropertyChanged("NgayLap");
-					this.OnNgayLapChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TienHang", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> TienHang
-		{
-			get
-			{
-				return this._TienHang;
-			}
-			set
-			{
-				if ((this._TienHang != value))
-				{
-					this.OnTienHangChanging(value);
-					this.SendPropertyChanging();
-					this._TienHang = value;
-					this.SendPropertyChanged("TienHang");
-					this.OnTienHangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TienThue", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> TienThue
-		{
-			get
-			{
-				return this._TienThue;
-			}
-			set
-			{
-				if ((this._TienThue != value))
-				{
-					this.OnTienThueChanging(value);
-					this.SendPropertyChanging();
-					this._TienThue = value;
-					this.SendPropertyChanged("TienThue");
-					this.OnTienThueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongTien", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> TongTien
-		{
-			get
-			{
-				return this._TongTien;
-			}
-			set
-			{
-				if ((this._TongTien != value))
-				{
-					this.OnTongTienChanging(value);
-					this.SendPropertyChanging();
-					this._TongTien = value;
-					this.SendPropertyChanged("TongTien");
-					this.OnTongTienChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NguoiMuaHang", DbType="NVarChar(255)")]
-		public string NguoiMuaHang
-		{
-			get
-			{
-				return this._NguoiMuaHang;
-			}
-			set
-			{
-				if ((this._NguoiMuaHang != value))
-				{
-					this.OnNguoiMuaHangChanging(value);
-					this.SendPropertyChanging();
-					this._NguoiMuaHang = value;
-					this.SendPropertyChanged("NguoiMuaHang");
-					this.OnNguoiMuaHangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhThucThanhToan", DbType="NVarChar(20)")]
-		public string HinhThucThanhToan
-		{
-			get
-			{
-				return this._HinhThucThanhToan;
-			}
-			set
-			{
-				if ((this._HinhThucThanhToan != value))
-				{
-					this.OnHinhThucThanhToanChanging(value);
-					this.SendPropertyChanging();
-					this._HinhThucThanhToan = value;
-					this.SendPropertyChanged("HinhThucThanhToan");
-					this.OnHinhThucThanhToanChanged();
 				}
 			}
 		}
@@ -810,6 +580,260 @@ namespace PHANMEMBANCHINH
 					this._DonViTinh = value;
 					this.SendPropertyChanged("DonViTinh");
 					this.OnDonViTinhChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOADON")]
+	public partial class HOADON : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _IDHD;
+		
+		private System.Nullable<int> _IDKH;
+		
+		private System.Nullable<System.DateTime> _NgayLap;
+		
+		private System.Nullable<decimal> _TienHang;
+		
+		private System.Nullable<decimal> _TienThue;
+		
+		private System.Nullable<decimal> _TongTien;
+		
+		private string _Congtymuahang;
+		
+		private string _NguoiMuaHang;
+		
+		private string _HinhThucThanhToan;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDHDChanging(string value);
+    partial void OnIDHDChanged();
+    partial void OnIDKHChanging(System.Nullable<int> value);
+    partial void OnIDKHChanged();
+    partial void OnNgayLapChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayLapChanged();
+    partial void OnTienHangChanging(System.Nullable<decimal> value);
+    partial void OnTienHangChanged();
+    partial void OnTienThueChanging(System.Nullable<decimal> value);
+    partial void OnTienThueChanged();
+    partial void OnTongTienChanging(System.Nullable<decimal> value);
+    partial void OnTongTienChanged();
+    partial void OnCongtymuahangChanging(string value);
+    partial void OnCongtymuahangChanged();
+    partial void OnNguoiMuaHangChanging(string value);
+    partial void OnNguoiMuaHangChanged();
+    partial void OnHinhThucThanhToanChanging(string value);
+    partial void OnHinhThucThanhToanChanged();
+    #endregion
+		
+		public HOADON()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDHD", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string IDHD
+		{
+			get
+			{
+				return this._IDHD;
+			}
+			set
+			{
+				if ((this._IDHD != value))
+				{
+					this.OnIDHDChanging(value);
+					this.SendPropertyChanging();
+					this._IDHD = value;
+					this.SendPropertyChanged("IDHD");
+					this.OnIDHDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDKH", DbType="Int")]
+		public System.Nullable<int> IDKH
+		{
+			get
+			{
+				return this._IDKH;
+			}
+			set
+			{
+				if ((this._IDKH != value))
+				{
+					this.OnIDKHChanging(value);
+					this.SendPropertyChanging();
+					this._IDKH = value;
+					this.SendPropertyChanged("IDKH");
+					this.OnIDKHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayLap", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayLap
+		{
+			get
+			{
+				return this._NgayLap;
+			}
+			set
+			{
+				if ((this._NgayLap != value))
+				{
+					this.OnNgayLapChanging(value);
+					this.SendPropertyChanging();
+					this._NgayLap = value;
+					this.SendPropertyChanged("NgayLap");
+					this.OnNgayLapChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TienHang", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> TienHang
+		{
+			get
+			{
+				return this._TienHang;
+			}
+			set
+			{
+				if ((this._TienHang != value))
+				{
+					this.OnTienHangChanging(value);
+					this.SendPropertyChanging();
+					this._TienHang = value;
+					this.SendPropertyChanged("TienHang");
+					this.OnTienHangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TienThue", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> TienThue
+		{
+			get
+			{
+				return this._TienThue;
+			}
+			set
+			{
+				if ((this._TienThue != value))
+				{
+					this.OnTienThueChanging(value);
+					this.SendPropertyChanging();
+					this._TienThue = value;
+					this.SendPropertyChanged("TienThue");
+					this.OnTienThueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongTien", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> TongTien
+		{
+			get
+			{
+				return this._TongTien;
+			}
+			set
+			{
+				if ((this._TongTien != value))
+				{
+					this.OnTongTienChanging(value);
+					this.SendPropertyChanging();
+					this._TongTien = value;
+					this.SendPropertyChanged("TongTien");
+					this.OnTongTienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Congtymuahang", DbType="NVarChar(MAX)")]
+		public string Congtymuahang
+		{
+			get
+			{
+				return this._Congtymuahang;
+			}
+			set
+			{
+				if ((this._Congtymuahang != value))
+				{
+					this.OnCongtymuahangChanging(value);
+					this.SendPropertyChanging();
+					this._Congtymuahang = value;
+					this.SendPropertyChanged("Congtymuahang");
+					this.OnCongtymuahangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NguoiMuaHang", DbType="NVarChar(255)")]
+		public string NguoiMuaHang
+		{
+			get
+			{
+				return this._NguoiMuaHang;
+			}
+			set
+			{
+				if ((this._NguoiMuaHang != value))
+				{
+					this.OnNguoiMuaHangChanging(value);
+					this.SendPropertyChanging();
+					this._NguoiMuaHang = value;
+					this.SendPropertyChanged("NguoiMuaHang");
+					this.OnNguoiMuaHangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhThucThanhToan", DbType="NVarChar(20)")]
+		public string HinhThucThanhToan
+		{
+			get
+			{
+				return this._HinhThucThanhToan;
+			}
+			set
+			{
+				if ((this._HinhThucThanhToan != value))
+				{
+					this.OnHinhThucThanhToanChanging(value);
+					this.SendPropertyChanging();
+					this._HinhThucThanhToan = value;
+					this.SendPropertyChanged("HinhThucThanhToan");
+					this.OnHinhThucThanhToanChanged();
 				}
 			}
 		}

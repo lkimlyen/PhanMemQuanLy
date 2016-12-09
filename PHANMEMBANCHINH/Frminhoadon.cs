@@ -60,6 +60,7 @@ namespace PHANMEMBANCHINH
        
         public string NguoiMuaHang { get; set; }
         public List<PHANMEMBANCHINH.Form1.MUAHANG> muahang { get; set; }
+      
         public string TenDonVi { get; set; }
         public string DiaChi { get; set; }
         public string MaSoThue { get; set; }
@@ -86,7 +87,6 @@ namespace PHANMEMBANCHINH
         public string TienHang { get; set; }
         private void Frminhoadon_Load(object sender, EventArgs e)
         {
-
             ReportParameter[] param = new ReportParameter[26];
             param[0] = new ReportParameter("NguoiMuaHang", NguoiMuaHang);
             param[1] = new ReportParameter("TenDonVi", TenDonVi);
