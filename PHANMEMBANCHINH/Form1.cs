@@ -1284,6 +1284,19 @@ namespace PHANMEMBANCHINH
             }
 
         }
+
+        private void fillByToolStripButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                this.hoadonTableAdapter1.FillBy(this.qUANLYBANHANGDataSet.HOADON);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 
 }

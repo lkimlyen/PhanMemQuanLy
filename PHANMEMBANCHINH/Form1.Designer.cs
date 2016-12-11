@@ -31,9 +31,9 @@ namespace PHANMEMBANCHINH
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
@@ -103,8 +103,6 @@ namespace PHANMEMBANCHINH
             this.panel3 = new System.Windows.Forms.Panel();
             this.hOADONDataGridView = new System.Windows.Forms.DataGridView();
             this.hOADONBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.qUANLYBANHANGDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qUANLYBANHANGDataSet = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -138,9 +136,6 @@ namespace PHANMEMBANCHINH
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.hOADONBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.hoadonTableAdapter1 = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1TableAdapters.HOADONTableAdapter();
-            this.hOADONBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.iDHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.congtymuahangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nguoiMuaHangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,6 +144,11 @@ namespace PHANMEMBANCHINH
             this.tienThueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tongTienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hinhThucThanhToanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qUANLYBANHANGDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qUANLYBANHANGDataSet = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1();
+            this.hOADONBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.hoadonTableAdapter1 = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1TableAdapters.HOADONTableAdapter();
+            this.hOADONBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
@@ -163,8 +163,6 @@ namespace PHANMEMBANCHINH
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -172,6 +170,8 @@ namespace PHANMEMBANCHINH
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETHOADONBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource2)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
@@ -185,7 +185,7 @@ namespace PHANMEMBANCHINH
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1112, 554);
+            this.tabControl1.Size = new System.Drawing.Size(1148, 590);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -572,8 +572,8 @@ namespace PHANMEMBANCHINH
             this.dataGridView2.Location = new System.Drawing.Point(7, 240);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView2.Size = new System.Drawing.Size(649, 253);
             this.dataGridView2.TabIndex = 5;
@@ -921,7 +921,7 @@ namespace PHANMEMBANCHINH
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1104, 516);
+            this.tabPage2.Size = new System.Drawing.Size(1140, 552);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quản lý";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -931,7 +931,7 @@ namespace PHANMEMBANCHINH
             this.panel3.Controls.Add(this.hOADONDataGridView);
             this.panel3.Location = new System.Drawing.Point(121, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(995, 527);
+            this.panel3.Size = new System.Drawing.Size(1011, 546);
             this.panel3.TabIndex = 6;
             // 
             // hOADONDataGridView
@@ -942,14 +942,14 @@ namespace PHANMEMBANCHINH
             this.hOADONDataGridView.AutoGenerateColumns = false;
             this.hOADONDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.hOADONDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hOADONDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hOADONDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.hOADONDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hOADONDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDHDDataGridViewTextBoxColumn,
@@ -964,7 +964,7 @@ namespace PHANMEMBANCHINH
             this.hOADONDataGridView.Location = new System.Drawing.Point(8, 6);
             this.hOADONDataGridView.Name = "hOADONDataGridView";
             this.hOADONDataGridView.ReadOnly = true;
-            this.hOADONDataGridView.Size = new System.Drawing.Size(967, 501);
+            this.hOADONDataGridView.Size = new System.Drawing.Size(1000, 537);
             this.hOADONDataGridView.TabIndex = 0;
             this.hOADONDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hOADONDataGridView_CellContentClick_1);
             // 
@@ -972,16 +972,7 @@ namespace PHANMEMBANCHINH
             // 
             this.hOADONBindingSource3.DataMember = "HOADON";
             this.hOADONBindingSource3.DataSource = this.qUANLYBANHANGDataSetBindingSource;
-            // 
-            // qUANLYBANHANGDataSetBindingSource
-            // 
-            this.qUANLYBANHANGDataSetBindingSource.DataSource = this.qUANLYBANHANGDataSet;
-            this.qUANLYBANHANGDataSetBindingSource.Position = 0;
-            // 
-            // qUANLYBANHANGDataSet
-            // 
-            this.qUANLYBANHANGDataSet.DataSetName = "qUANLYBANHANGDataSet";
-            this.qUANLYBANHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.hOADONBindingSource3.Filter = "";
             // 
             // button3
             // 
@@ -1256,9 +1247,9 @@ namespace PHANMEMBANCHINH
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 554);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 593);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1112, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1148, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1274,20 +1265,6 @@ namespace PHANMEMBANCHINH
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer);
-            // 
-            // hOADONBindingSource1
-            // 
-            this.hOADONBindingSource1.DataMember = "HOADON";
-            this.hOADONBindingSource1.DataSource = this.qUANLYBANHANGDataSet;
-            // 
-            // hoadonTableAdapter1
-            // 
-            this.hoadonTableAdapter1.ClearBeforeFill = true;
-            // 
-            // hOADONBindingSource2
-            // 
-            this.hOADONBindingSource2.DataMember = "HOADON";
-            this.hOADONBindingSource2.DataSource = this.qUANLYBANHANGDataSet;
             // 
             // iDHDDataGridViewTextBoxColumn
             // 
@@ -1353,6 +1330,30 @@ namespace PHANMEMBANCHINH
             this.hinhThucThanhToanDataGridViewTextBoxColumn.ReadOnly = true;
             this.hinhThucThanhToanDataGridViewTextBoxColumn.Width = 177;
             // 
+            // qUANLYBANHANGDataSetBindingSource
+            // 
+            this.qUANLYBANHANGDataSetBindingSource.DataSource = this.qUANLYBANHANGDataSet;
+            this.qUANLYBANHANGDataSetBindingSource.Position = 0;
+            // 
+            // qUANLYBANHANGDataSet
+            // 
+            this.qUANLYBANHANGDataSet.DataSetName = "qUANLYBANHANGDataSet";
+            this.qUANLYBANHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // hOADONBindingSource1
+            // 
+            this.hOADONBindingSource1.DataMember = "HOADON";
+            this.hOADONBindingSource1.DataSource = this.qUANLYBANHANGDataSet;
+            // 
+            // hoadonTableAdapter1
+            // 
+            this.hoadonTableAdapter1.ClearBeforeFill = true;
+            // 
+            // hOADONBindingSource2
+            // 
+            this.hOADONBindingSource2.DataMember = "HOADON";
+            this.hOADONBindingSource2.DataSource = this.qUANLYBANHANGDataSet;
+            // 
             // fillByToolStrip
             // 
             this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1362,6 +1363,7 @@ namespace PHANMEMBANCHINH
             this.fillByToolStrip.Size = new System.Drawing.Size(1112, 25);
             this.fillByToolStrip.TabIndex = 5;
             this.fillByToolStrip.Text = "fillByToolStrip";
+            this.fillByToolStrip.Visible = false;
             // 
             // fillByToolStripButton
             // 
@@ -1369,13 +1371,13 @@ namespace PHANMEMBANCHINH
             this.fillByToolStripButton.Name = "fillByToolStripButton";
             this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
             this.fillByToolStripButton.Text = "FillBy";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 576);
+            this.ClientSize = new System.Drawing.Size(1148, 615);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
@@ -1401,8 +1403,6 @@ namespace PHANMEMBANCHINH
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hOADONDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1412,6 +1412,8 @@ namespace PHANMEMBANCHINH
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETHOADONBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource2)).EndInit();
             this.fillByToolStrip.ResumeLayout(false);
