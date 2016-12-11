@@ -48,7 +48,7 @@ namespace PHANMEMBANCHINH
             else
             if (donGiaTextBox.Text != "" && tenSanPhamTextBox.Text != "")
             {
-                sp.capnhatsanpham(int.Parse(iDSPTextBox.Text), tenSanPhamTextBox.Text, Decimal.Parse(donGiaTextBox.Text), donViTinhTextBox.Text);
+                sp.capnhatsanpham(int.Parse(iDSPTextBox.Text), tenSanPhamTextBox.Text, Decimal.Parse(donGiaTextBox.Text.Replace(".","").Replace(",",".")), donViTinhTextBox.Text);
                 MessageBox.Show("Sửa thành công", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

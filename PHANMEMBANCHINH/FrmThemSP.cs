@@ -39,7 +39,8 @@ namespace PHANMEMBANCHINH
             else
             if (donGiaTextBox.Text != "" && tenSanPhamTextBox.Text != "")
             {
-                sp.themsanpham(tenSanPhamTextBox.Text, Convert.ToDecimal(donGiaTextBox.Text), donViTinhTextBox.Text);
+               
+                sp.themsanpham(tenSanPhamTextBox.Text, Convert.ToDecimal(donGiaTextBox.Text.Replace(".","").Replace(",",".")), donViTinhTextBox.Text);
                 MessageBox.Show("Thêm mới thành công", "Thêm sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -63,7 +64,7 @@ namespace PHANMEMBANCHINH
 
         private void keypressdongia(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '.' && !Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (e.KeyChar != '.' && e.KeyChar != ',' && !Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

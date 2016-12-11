@@ -554,10 +554,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatCurrency(Fields!DonGia.Value,2)</Value>
+                              <Value>=Format(Fields!DonGia.Value,"0,###.#### ₫")</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,0.0 '₫';(#,0.0 '₫')</Format>
+                                <Format>#,0 '₫';(#,0 '₫')</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -572,7 +572,6 @@
                           <Color>White</Color>
                           <Style>None</Style>
                         </Border>
-                        <rd:FormatSymbolCulture>vi-VN</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -586,10 +585,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ThanhTien.Value</Value>
+                              <Value>=Format(Fields!ThanhTien.Value,"0,###.#### ₫")</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <Format>#,0.00 '₫';(#,0.00 '₫')</Format>
+                                <Format>#,0 '₫';(#,0 '₫')</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -607,6 +606,7 @@
                         <rd:FormatSymbolCulture>vi-VN</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

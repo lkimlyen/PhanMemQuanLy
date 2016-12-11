@@ -31,9 +31,9 @@ namespace PHANMEMBANCHINH
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
@@ -102,6 +102,9 @@ namespace PHANMEMBANCHINH
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.hOADONDataGridView = new System.Windows.Forms.DataGridView();
+            this.hOADONBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.qUANLYBANHANGDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qUANLYBANHANGDataSet = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -118,6 +121,7 @@ namespace PHANMEMBANCHINH
             this.button8 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.button14 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -134,18 +138,19 @@ namespace PHANMEMBANCHINH
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.hOADONBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.hoadonTableAdapter1 = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1TableAdapters.HOADONTableAdapter();
+            this.hOADONBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.iDHDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.congtymuahangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nguoiMuaHangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayLapDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tienHangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tienThueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tongTienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nguoiMuaHangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hinhThucThanhToanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hOADONBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.qUANLYBANHANGDataSet = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1();
-            this.hoadonTableAdapter1 = new PHANMEMBANCHINH.QUANLYBANHANGDataSet1TableAdapters.HOADONTableAdapter();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -157,6 +162,9 @@ namespace PHANMEMBANCHINH
             this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -165,7 +173,8 @@ namespace PHANMEMBANCHINH
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETHOADONBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource2)).BeginInit();
+            this.fillByToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -506,6 +515,7 @@ namespace PHANMEMBANCHINH
             this.txtthanhtien.Size = new System.Drawing.Size(182, 26);
             this.txtthanhtien.TabIndex = 1;
             this.txtthanhtien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtthanhtien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.thanhtien_keypress);
             // 
             // txttongtien
             // 
@@ -514,6 +524,7 @@ namespace PHANMEMBANCHINH
             this.txttongtien.Size = new System.Drawing.Size(182, 26);
             this.txttongtien.TabIndex = 1;
             this.txttongtien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txttongtien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tongtien_keypress);
             // 
             // txtthue
             // 
@@ -522,6 +533,7 @@ namespace PHANMEMBANCHINH
             this.txtthue.Size = new System.Drawing.Size(182, 26);
             this.txtthue.TabIndex = 1;
             this.txtthue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtthue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.thue_keypress);
             // 
             // label13
             // 
@@ -560,8 +572,8 @@ namespace PHANMEMBANCHINH
             this.dataGridView2.Location = new System.Drawing.Point(7, 240);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView2.Size = new System.Drawing.Size(649, 253);
             this.dataGridView2.TabIndex = 5;
@@ -803,7 +815,9 @@ namespace PHANMEMBANCHINH
             this.cbotendonvi.Size = new System.Drawing.Size(367, 28);
             this.cbotendonvi.TabIndex = 16;
             this.cbotendonvi.SelectedIndexChanged += new System.EventHandler(this.comselect);
+            this.cbotendonvi.TextChanged += new System.EventHandler(this.comdonvi_textchanged);
             this.cbotendonvi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keypressCBTenDonVi);
+            this.cbotendonvi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbtendonvi_keyup);
             // 
             // label12
             // 
@@ -917,7 +931,7 @@ namespace PHANMEMBANCHINH
             this.panel3.Controls.Add(this.hOADONDataGridView);
             this.panel3.Location = new System.Drawing.Point(121, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(983, 516);
+            this.panel3.Size = new System.Drawing.Size(995, 527);
             this.panel3.TabIndex = 6;
             // 
             // hOADONDataGridView
@@ -928,31 +942,46 @@ namespace PHANMEMBANCHINH
             this.hOADONDataGridView.AutoGenerateColumns = false;
             this.hOADONDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.hOADONDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hOADONDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hOADONDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.hOADONDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hOADONDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDHDDataGridViewTextBoxColumn,
-            this.iDKHDataGridViewTextBoxColumn,
+            this.congtymuahangDataGridViewTextBoxColumn,
+            this.nguoiMuaHangDataGridViewTextBoxColumn,
             this.ngayLapDataGridViewTextBoxColumn,
             this.tienHangDataGridViewTextBoxColumn,
             this.tienThueDataGridViewTextBoxColumn,
             this.tongTienDataGridViewTextBoxColumn,
-            this.nguoiMuaHangDataGridViewTextBoxColumn,
             this.hinhThucThanhToanDataGridViewTextBoxColumn});
-            this.hOADONDataGridView.DataSource = this.hOADONBindingSource1;
+            this.hOADONDataGridView.DataSource = this.hOADONBindingSource3;
             this.hOADONDataGridView.Location = new System.Drawing.Point(8, 6);
             this.hOADONDataGridView.Name = "hOADONDataGridView";
             this.hOADONDataGridView.ReadOnly = true;
             this.hOADONDataGridView.Size = new System.Drawing.Size(967, 501);
             this.hOADONDataGridView.TabIndex = 0;
             this.hOADONDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hOADONDataGridView_CellContentClick_1);
+            // 
+            // hOADONBindingSource3
+            // 
+            this.hOADONBindingSource3.DataMember = "HOADON";
+            this.hOADONBindingSource3.DataSource = this.qUANLYBANHANGDataSetBindingSource;
+            // 
+            // qUANLYBANHANGDataSetBindingSource
+            // 
+            this.qUANLYBANHANGDataSetBindingSource.DataSource = this.qUANLYBANHANGDataSet;
+            this.qUANLYBANHANGDataSetBindingSource.Position = 0;
+            // 
+            // qUANLYBANHANGDataSet
+            // 
+            this.qUANLYBANHANGDataSet.DataSetName = "qUANLYBANHANGDataSet";
+            this.qUANLYBANHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button3
             // 
@@ -1118,6 +1147,14 @@ namespace PHANMEMBANCHINH
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(423, 25);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(376, 31);
+            this.txtTimKiem.TabIndex = 11;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.TimKiem);
+            // 
             // button14
             // 
             this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(125)))), ((int)(((byte)(186)))));
@@ -1219,7 +1256,7 @@ namespace PHANMEMBANCHINH
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 550);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 554);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1112, 22);
             this.statusStrip1.TabIndex = 4;
@@ -1238,21 +1275,43 @@ namespace PHANMEMBANCHINH
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer);
             // 
+            // hOADONBindingSource1
+            // 
+            this.hOADONBindingSource1.DataMember = "HOADON";
+            this.hOADONBindingSource1.DataSource = this.qUANLYBANHANGDataSet;
+            // 
+            // hoadonTableAdapter1
+            // 
+            this.hoadonTableAdapter1.ClearBeforeFill = true;
+            // 
+            // hOADONBindingSource2
+            // 
+            this.hOADONBindingSource2.DataMember = "HOADON";
+            this.hOADONBindingSource2.DataSource = this.qUANLYBANHANGDataSet;
+            // 
             // iDHDDataGridViewTextBoxColumn
             // 
             this.iDHDDataGridViewTextBoxColumn.DataPropertyName = "IDHD";
-            this.iDHDDataGridViewTextBoxColumn.HeaderText = "Mã hóa đơn";
+            this.iDHDDataGridViewTextBoxColumn.HeaderText = "IDHD";
             this.iDHDDataGridViewTextBoxColumn.Name = "iDHDDataGridViewTextBoxColumn";
             this.iDHDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDHDDataGridViewTextBoxColumn.Width = 138;
+            this.iDHDDataGridViewTextBoxColumn.Width = 87;
             // 
-            // iDKHDataGridViewTextBoxColumn
+            // congtymuahangDataGridViewTextBoxColumn
             // 
-            this.iDKHDataGridViewTextBoxColumn.DataPropertyName = "IDKH";
-            this.iDKHDataGridViewTextBoxColumn.HeaderText = "Mã khách hàng";
-            this.iDKHDataGridViewTextBoxColumn.Name = "iDKHDataGridViewTextBoxColumn";
-            this.iDKHDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDKHDataGridViewTextBoxColumn.Width = 168;
+            this.congtymuahangDataGridViewTextBoxColumn.DataPropertyName = "Congtymuahang";
+            this.congtymuahangDataGridViewTextBoxColumn.HeaderText = "Đơn vị mua hàng";
+            this.congtymuahangDataGridViewTextBoxColumn.Name = "congtymuahangDataGridViewTextBoxColumn";
+            this.congtymuahangDataGridViewTextBoxColumn.ReadOnly = true;
+            this.congtymuahangDataGridViewTextBoxColumn.Width = 138;
+            // 
+            // nguoiMuaHangDataGridViewTextBoxColumn
+            // 
+            this.nguoiMuaHangDataGridViewTextBoxColumn.DataPropertyName = "NguoiMuaHang";
+            this.nguoiMuaHangDataGridViewTextBoxColumn.HeaderText = "Người mua hàng";
+            this.nguoiMuaHangDataGridViewTextBoxColumn.Name = "nguoiMuaHangDataGridViewTextBoxColumn";
+            this.nguoiMuaHangDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nguoiMuaHangDataGridViewTextBoxColumn.Width = 133;
             // 
             // ngayLapDataGridViewTextBoxColumn
             // 
@@ -1265,34 +1324,26 @@ namespace PHANMEMBANCHINH
             // tienHangDataGridViewTextBoxColumn
             // 
             this.tienHangDataGridViewTextBoxColumn.DataPropertyName = "TienHang";
-            this.tienHangDataGridViewTextBoxColumn.HeaderText = "Tiền hàng";
+            this.tienHangDataGridViewTextBoxColumn.HeaderText = "Tiền Hàng";
             this.tienHangDataGridViewTextBoxColumn.Name = "tienHangDataGridViewTextBoxColumn";
             this.tienHangDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tienHangDataGridViewTextBoxColumn.Width = 122;
+            this.tienHangDataGridViewTextBoxColumn.Width = 124;
             // 
             // tienThueDataGridViewTextBoxColumn
             // 
             this.tienThueDataGridViewTextBoxColumn.DataPropertyName = "TienThue";
-            this.tienThueDataGridViewTextBoxColumn.HeaderText = "Tiền thuế";
+            this.tienThueDataGridViewTextBoxColumn.HeaderText = "Tiền Thuế";
             this.tienThueDataGridViewTextBoxColumn.Name = "tienThueDataGridViewTextBoxColumn";
             this.tienThueDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tienThueDataGridViewTextBoxColumn.Width = 116;
+            this.tienThueDataGridViewTextBoxColumn.Width = 123;
             // 
             // tongTienDataGridViewTextBoxColumn
             // 
             this.tongTienDataGridViewTextBoxColumn.DataPropertyName = "TongTien";
-            this.tongTienDataGridViewTextBoxColumn.HeaderText = "Tổng tiền";
+            this.tongTienDataGridViewTextBoxColumn.HeaderText = "Tổng Tiền";
             this.tongTienDataGridViewTextBoxColumn.Name = "tongTienDataGridViewTextBoxColumn";
             this.tongTienDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tongTienDataGridViewTextBoxColumn.Width = 116;
-            // 
-            // nguoiMuaHangDataGridViewTextBoxColumn
-            // 
-            this.nguoiMuaHangDataGridViewTextBoxColumn.DataPropertyName = "NguoiMuaHang";
-            this.nguoiMuaHangDataGridViewTextBoxColumn.HeaderText = "Người mua hàng";
-            this.nguoiMuaHangDataGridViewTextBoxColumn.Name = "nguoiMuaHangDataGridViewTextBoxColumn";
-            this.nguoiMuaHangDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nguoiMuaHangDataGridViewTextBoxColumn.Width = 133;
+            this.tongTienDataGridViewTextBoxColumn.Width = 123;
             // 
             // hinhThucThanhToanDataGridViewTextBoxColumn
             // 
@@ -1302,33 +1353,30 @@ namespace PHANMEMBANCHINH
             this.hinhThucThanhToanDataGridViewTextBoxColumn.ReadOnly = true;
             this.hinhThucThanhToanDataGridViewTextBoxColumn.Width = 177;
             // 
-            // hOADONBindingSource1
+            // fillByToolStrip
             // 
-            this.hOADONBindingSource1.DataMember = "HOADON";
-            this.hOADONBindingSource1.DataSource = this.qUANLYBANHANGDataSet;
+            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton});
+            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillByToolStrip.Name = "fillByToolStrip";
+            this.fillByToolStrip.Size = new System.Drawing.Size(1112, 25);
+            this.fillByToolStrip.TabIndex = 5;
+            this.fillByToolStrip.Text = "fillByToolStrip";
             // 
-            // qUANLYBANHANGDataSet
+            // fillByToolStripButton
             // 
-            this.qUANLYBANHANGDataSet.DataSetName = "qUANLYBANHANGDataSet";
-            this.qUANLYBANHANGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hoadonTableAdapter1
-            // 
-            this.hoadonTableAdapter1.ClearBeforeFill = true;
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Location = new System.Drawing.Point(423, 25);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(376, 31);
-            this.txtTimKiem.TabIndex = 11;
-            this.txtTimKiem.TextChanged += new System.EventHandler(this.TimKiem);
+            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton.Name = "fillByToolStripButton";
+            this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
+            this.fillByToolStripButton.Text = "FillBy";
+            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 572);
+            this.ClientSize = new System.Drawing.Size(1112, 576);
+            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1352,6 +1400,9 @@ namespace PHANMEMBANCHINH
             this.tabPage2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hOADONDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1362,7 +1413,9 @@ namespace PHANMEMBANCHINH
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource2)).EndInit();
+            this.fillByToolStrip.ResumeLayout(false);
+            this.fillByToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1471,18 +1524,23 @@ namespace PHANMEMBANCHINH
         private QUANLYBANHANGDataSet1TableAdapters.HOADONTableAdapter hoadonTableAdapter1;
         private QUANLYBANHANGDataSet1 qUANLYBANHANGDataSet;
         private System.Windows.Forms.BindingSource hOADONBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDHDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDKHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngayLapDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tienHangDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tienThueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tongTienDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nguoiMuaHangDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hinhThucThanhToanDataGridViewTextBoxColumn;
         protected System.Windows.Forms.DataGridView hOADONDataGridView;
         private System.Windows.Forms.DateTimePicker dtpngaylap;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.BindingSource hOADONBindingSource2;
+        private System.Windows.Forms.BindingSource hOADONBindingSource3;
+        private System.Windows.Forms.BindingSource qUANLYBANHANGDataSetBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDHDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn congtymuahangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nguoiMuaHangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngayLapDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tienHangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tienThueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongTienDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hinhThucThanhToanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStrip fillByToolStrip;
+        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
     }
 }
 
