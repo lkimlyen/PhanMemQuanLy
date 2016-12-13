@@ -94,6 +94,7 @@ namespace PHANMEMBANCHINH
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           // Application.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
             panel1.Show();
             panel2.Hide();
@@ -223,7 +224,7 @@ namespace PHANMEMBANCHINH
             {
                 reader.Read();
                 //txtdongia.Text = string.Format("{0:#.##0,####}",Decimal.Parse(reader.GetValue(2).ToString()));
-                txtdongia.Text = String.Format(info, "{0:#,###.###}", Decimal.Parse(reader.GetValue(2).ToString())) + " ₫";
+                txtdongia.Text = String.Format(info, "{0:#,###.####}", Decimal.Parse(reader.GetValue(2).ToString())) + " ₫";
                 if (!reader.IsDBNull(3))
                     txtdonvitinh.Text = reader.GetString(3).ToString();
             }
@@ -268,7 +269,7 @@ namespace PHANMEMBANCHINH
             {
                 decimal soluong;
 
-                if (!decimal.TryParse(numsoluong.Value.ToString(), out soluong))
+                if (!decimal.TryParse((txtsoluong.Text.ToString().Replace(".", "").Replace(",", ".")), out soluong))
                 {
                     MessageBox.Show("Số lượng không hợp lệ");
                     return;
@@ -284,7 +285,7 @@ namespace PHANMEMBANCHINH
                     else
                     {
                         Decimal tongTienHienTai = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                        if (tongTienHienTai + Decimal.Parse(txtdongia.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")) * numsoluong.Value > 2000000000)
+                        if (tongTienHienTai + Decimal.Parse(txtdongia.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")) * Decimal.Parse(txtsoluong.Text.ToString().Replace(".", "").Replace(",", ".")) > 2000000000)
                         {
                             MessageBox.Show("Đơn hàng quá lớn, điều này sẽ gây tràn bộ nhớ. Vui lòng liên hệ nhà phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -296,7 +297,7 @@ namespace PHANMEMBANCHINH
                                 IDSP = dv.IDSP,
                                 TenSanPham = dv.TenSanPham,
                                 DonGia = Convert.ToDecimal(dv.DonGia),
-                                SoLuong = soluong,
+                                SoLuong = Decimal.Parse(txtsoluong.Text.ToString().Replace(".", "").Replace(",", ".")),
                                 DonViTinh = dv.DonViTinh
                             });
                         }
@@ -364,7 +365,7 @@ namespace PHANMEMBANCHINH
             }
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 
-            txtthanhtien.Text = String.Format(info, "{0:#,###.####}", dsmua.Sum(p => p.SoLuong * p.DonGia)) + " ₫";
+            txtthanhtien.Text = String.Format(info, "{0:#,###.####}", dsmua.Sum(p => p.SoLuong * p.DonGia)) + "₫";
             Decimal n = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
             Decimal th = Decimal.Parse(numericUpDown2.Value.ToString());
             Decimal vat = th / 100;
@@ -372,7 +373,7 @@ namespace PHANMEMBANCHINH
             if (checkBox1.Checked)
             {
 
-                txtthue.Text = String.Format(info, "{0:#,###.####}", gtgt) + " ₫";
+                txtthue.Text = String.Format(info, "{0:#,###.####}", gtgt) + "₫";
             }
             else
             {
@@ -384,8 +385,8 @@ namespace PHANMEMBANCHINH
                 tong = n + gtgt;
             }
             else tong = n;
-            txttongtien.Text = String.Format(info, "{0:#,###.####}", tong) + " ₫";
-           // Decimal y = 0;
+            txttongtien.Text = String.Format(info, "{0:#,###.####}", tong) + "₫";
+            // Decimal y = 0;
             //if (tong <= 1999999999999)
             //{
             ////    if (tong >= 0)
@@ -675,7 +676,7 @@ namespace PHANMEMBANCHINH
                 }
             }
             if (booAm) str = "Âm " + str;
-            return  str.Trim() + " đồng";
+            return str.Trim() + " đồng";
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -810,9 +811,9 @@ namespace PHANMEMBANCHINH
                 }
 
 
-                if (Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace(" ₫", "")) >= 0)
+                if (Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")) >= 0)
                 {
-                    label16.Text = ConvertDecimalToString(Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace(" ₫", "")));
+                    label16.Text = ConvertDecimalToString(Decimal.Parse(txttongtien.Text.Replace(".", "").Replace(",", ".").Replace("₫", "")));
                     Frminhoadon inhd = new Frminhoadon(txtnguoimuahang.Text, cbotendonvi.Text, txtdiachi.Text, txtmasothue.Text, txtsotaikhoan.Text, cbothanhtoan.Text, txtthue.Text, txttongtien.Text, dtpngaylap.Value, label16.Text, numericUpDown2.Value.ToString(), label14.Text, label15.Text, label17.Text, label18.Text, label19.Text, label20.Text, label21.Text, label22.Text, label23.Text, label24.Text, label25.Text, label26.Text, label27.Text, label28.Text, dsmua, txtthanhtien.Text);
                     inhd.ShowDialog();
                 }
@@ -822,7 +823,7 @@ namespace PHANMEMBANCHINH
                 }
 
 
-               
+
             }
         }
 
@@ -1030,12 +1031,13 @@ namespace PHANMEMBANCHINH
 
         private void btnsuasp_Click(object sender, EventArgs e)
         {
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             if (listView2.SelectedIndices.Count > 0)
             {
 
                 int id = int.Parse(listView2.SelectedItems[0].SubItems[0].Text);
                 string tensp = listView2.SelectedItems[0].SubItems[1].Text;
-                Decimal dongia = Decimal.Parse(listView2.SelectedItems[0].SubItems[2].Text);
+                string dongia = String.Format(info, "{0:#,###.###}", Decimal.Parse(listView2.SelectedItems[0].SubItems[2].Text)) + " ₫";
                 string donvitinh = listView2.SelectedItems[0].SubItems[3].Text;
 
                 FrmSuaSp sua = new FrmSuaSp(id, tensp, dongia, donvitinh);
@@ -1223,53 +1225,53 @@ namespace PHANMEMBANCHINH
 
         private void comdonvi_textchanged(object sender, EventArgs e)
         {
-         //   HandleTextChanged();
+            //   HandleTextChanged();
         }
-       
+
         private void HandleTextChanged()
         {
-        //    var txt = cbotendonvi.Text;
-        //    //var list = from d in data
-        //    //         where d.ToUpper().StartsWith(comboBox1.Text.ToUpper())
-        //    //       select d;
-        //    DataTable dt = nv.Laydskhachhang();
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        cbotendonvi.DataSource = dt;
-        //        //comboBox1.SelectedIndex = 0;
-        //        var sText = cbotendonvi.Items[0].ToString();
-        //        cbotendonvi.SelectionStart = txt.Length;
-        //        cbotendonvi.SelectionLength = sText.Length - txt.Length;
-        //        cbotendonvi.DroppedDown = true;
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        cbotendonvi.DroppedDown = false;
-        //        cbotendonvi.SelectionStart = txt.Length;
-        //    }
+            //    var txt = cbotendonvi.Text;
+            //    //var list = from d in data
+            //    //         where d.ToUpper().StartsWith(comboBox1.Text.ToUpper())
+            //    //       select d;
+            //    DataTable dt = nv.Laydskhachhang();
+            //    if (dt.Rows.Count > 0)
+            //    {
+            //        cbotendonvi.DataSource = dt;
+            //        //comboBox1.SelectedIndex = 0;
+            //        var sText = cbotendonvi.Items[0].ToString();
+            //        cbotendonvi.SelectionStart = txt.Length;
+            //        cbotendonvi.SelectionLength = sText.Length - txt.Length;
+            //        cbotendonvi.DroppedDown = true;
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        cbotendonvi.DroppedDown = false;
+            //        cbotendonvi.SelectionStart = txt.Length;
+            //    }
         }
 
         private void cbtendonvi_keyup(object sender, KeyEventArgs e)
         {
-        //    return;
-        //    if (e.KeyCode == Keys.Back)
-        //    {
-        //        int sStart = cbotendonvi.SelectionStart;
-        //        if (sStart > 0)
-        //        {
-        //            sStart--;
-        //            if (sStart == 0)
-        //            {
-        //                cbotendonvi.Text = "";
-        //            }
-        //            else
-        //            {
-        //                cbotendonvi.Text = cbotendonvi.Text.Substring(0, sStart);
-        //            }
-        //        }
-        //        e.Handled = true;
-        //    }
+            //    return;
+            //    if (e.KeyCode == Keys.Back)
+            //    {
+            //        int sStart = cbotendonvi.SelectionStart;
+            //        if (sStart > 0)
+            //        {
+            //            sStart--;
+            //            if (sStart == 0)
+            //            {
+            //                cbotendonvi.Text = "";
+            //            }
+            //            else
+            //            {
+            //                cbotendonvi.Text = cbotendonvi.Text.Substring(0, sStart);
+            //            }
+            //        }
+            //        e.Handled = true;
+            //    }
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
@@ -1296,6 +1298,14 @@ namespace PHANMEMBANCHINH
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void txtsoluong_keypress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',' && !Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 

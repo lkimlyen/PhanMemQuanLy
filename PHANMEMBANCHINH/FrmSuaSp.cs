@@ -12,7 +12,7 @@ namespace PHANMEMBANCHINH
 {
     public partial class FrmSuaSp : Form
     {
-        public FrmSuaSp( int id, string ten, Decimal dg, string dvt)
+        public FrmSuaSp( int id, string ten, string dg, string dvt)
         {
             InitializeComponent();
             idsp = id;
@@ -48,7 +48,7 @@ namespace PHANMEMBANCHINH
             else
             if (donGiaTextBox.Text != "" && tenSanPhamTextBox.Text != "")
             {
-                sp.capnhatsanpham(int.Parse(iDSPTextBox.Text), tenSanPhamTextBox.Text, Decimal.Parse(donGiaTextBox.Text.Replace(".","").Replace(",",".")), donViTinhTextBox.Text);
+                sp.capnhatsanpham(int.Parse(iDSPTextBox.Text), tenSanPhamTextBox.Text, Decimal.Parse(donGiaTextBox.Text.Replace(".","").Replace(",",".").Replace("₫", "")), donViTinhTextBox.Text);
                 MessageBox.Show("Sửa thành công", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -61,7 +61,7 @@ namespace PHANMEMBANCHINH
 
         private void dg(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '.' && !Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (e.KeyChar != '.' && e.KeyChar != ',' && !Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -69,7 +69,7 @@ namespace PHANMEMBANCHINH
 
         public string donvitinh { get; set; }
 
-        public Decimal dongia { get; set; }
+        public string dongia { get; set; }
 
         public string tensp { get; set; }
 
