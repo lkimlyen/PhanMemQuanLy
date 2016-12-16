@@ -365,7 +365,7 @@ namespace PHANMEMBANCHINH
             }
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 
-            txtthanhtien.Text = String.Format(info, "{0:#,###.####}", dsmua.Sum(p => p.SoLuong * p.DonGia)) + "₫";
+            txtthanhtien.Text = String.Format(info, "{0:#,###}", dsmua.Sum(p => p.SoLuong * p.DonGia));
             Decimal n = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
             Decimal th = Decimal.Parse(numericUpDown2.Value.ToString());
             Decimal vat = th / 100;
@@ -373,7 +373,7 @@ namespace PHANMEMBANCHINH
             if (checkBox1.Checked)
             {
 
-                txtthue.Text = String.Format(info, "{0:#,###.####}", gtgt) + "₫";
+                txtthue.Text = String.Format(info, "{0:#,###}", gtgt);
             }
             else
             {
@@ -385,7 +385,7 @@ namespace PHANMEMBANCHINH
                 tong = n + gtgt;
             }
             else tong = n;
-            txttongtien.Text = String.Format(info, "{0:#,###.####}", tong) + "₫";
+            txttongtien.Text = String.Format(info, "{0:#,###}", tong);
             // Decimal y = 0;
             //if (tong <= 1999999999999)
             //{
@@ -414,7 +414,7 @@ namespace PHANMEMBANCHINH
 
                 txtthue.Text = null;
                 Decimal tong = Decimal.Parse(dsmua.Sum(p => p.SoLuong * p.DonGia).ToString());
-                txttongtien.Text = String.Format(info, "{0:#,###.####}", tong) + " ₫";
+                txttongtien.Text = String.Format(info, "{0:#,###}", tong);
 
                 numericUpDown2.Value = 0;
                 numericUpDown2.Enabled = false;
@@ -428,8 +428,8 @@ namespace PHANMEMBANCHINH
                 Decimal vat = th / 100;
                 Decimal gtgt = n * vat;
                 Decimal tong = n + gtgt;
-                txttongtien.Text = String.Format(info, "{0:#,###.####}", tong) + " ₫";
-                txtthue.Text = String.Format(info, "{0:#,###.####}", gtgt) + " ₫";
+                txttongtien.Text = String.Format(info, "{0:#,###}", tong);
+                txtthue.Text = String.Format(info, "{0:#,###}", gtgt);
 
             }
         }

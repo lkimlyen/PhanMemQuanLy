@@ -554,7 +554,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Format(Fields!DonGia.Value,"0,###.####₫")</Value>
+                              <Value>=Format(Fields!DonGia.Value,"0,###.####")</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <Format>#,0 '₫';(#,0 '₫')</Format>
@@ -585,7 +585,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Format(Fields!ThanhTien.Value,"0,###.####₫")</Value>
+                              <Value>=Format(Fields!ThanhTien.Value,"0,###")</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <Format>#,0 '₫';(#,0 '₫')</Format>
