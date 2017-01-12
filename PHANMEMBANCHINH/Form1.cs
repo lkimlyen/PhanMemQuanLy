@@ -94,7 +94,7 @@ namespace PHANMEMBANCHINH
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // Application.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
+            // Application.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
             dtpngaylap.CustomFormat = "dd/MM/yyyy";
             panel1.Show();
             panel2.Hide();
@@ -732,80 +732,82 @@ namespace PHANMEMBANCHINH
                         if (txtmasothue.Text.Length >= 13 && txtmasothue.Text.Length < 14)
                     {
                         char[] t = txtmasothue.Text.ToCharArray();
-                        label14.Text = "";
-                        label15.Text = Convert.ToString(t[0]);
-                        label17.Text = Convert.ToString(t[1]);
 
-                        label18.Text = Convert.ToString(t[2]);
-                        label19.Text = Convert.ToString(t[3]);
-                        label20.Text = Convert.ToString(t[4]);
-                        label21.Text = Convert.ToString(t[5]);
-                        label22.Text = Convert.ToString(t[6]);
-                        label23.Text = Convert.ToString(t[7]);
-                        label24.Text = Convert.ToString(t[8]);
-                        label25.Text = Convert.ToString(t[9]);
-                        label26.Text = Convert.ToString(t[10]);
-                        label27.Text = Convert.ToString(t[11]);
-                        label28.Text = Convert.ToString(t[12]);
+                        label14.Text = Convert.ToString(t[0]);
+                        label15.Text = Convert.ToString(t[1]);
+
+                        label17.Text = Convert.ToString(t[2]);
+                        label18.Text = Convert.ToString(t[3]);
+                        label19.Text = Convert.ToString(t[4]);
+                        label20.Text = Convert.ToString(t[5]);
+                        label21.Text = Convert.ToString(t[6]);
+                        label22.Text = Convert.ToString(t[7]);
+                        label23.Text = Convert.ToString(t[8]);
+                        label24.Text = Convert.ToString(t[9]);
+                        label25.Text = Convert.ToString(t[10]);
+                        label26.Text = Convert.ToString(t[11]);
+                        label27.Text = Convert.ToString(t[12]);
+                        label28.Text = "";
                     }
                     else
                             if (txtmasothue.Text.Length >= 12 && txtmasothue.Text.Length < 13)
                     {
                         char[] t = txtmasothue.Text.ToCharArray();
-                        label14.Text = "";
-                        label15.Text = "";
-                        label17.Text = Convert.ToString(t[0]);
+                        label14.Text = Convert.ToString(t[0]);
+                        label15.Text = Convert.ToString(t[1]);
 
-                        label18.Text = Convert.ToString(t[1]);
-                        label19.Text = Convert.ToString(t[2]);
-                        label20.Text = Convert.ToString(t[3]);
-                        label21.Text = Convert.ToString(t[4]);
-                        label22.Text = Convert.ToString(t[5]);
-                        label23.Text = Convert.ToString(t[6]);
-                        label24.Text = Convert.ToString(t[7]);
-                        label25.Text = Convert.ToString(t[8]);
-                        label26.Text = Convert.ToString(t[9]);
-                        label27.Text = Convert.ToString(t[10]);
-                        label28.Text = Convert.ToString(t[11]);
+                        label17.Text = Convert.ToString(t[2]);
+                        label18.Text = Convert.ToString(t[3]);
+                        label19.Text = Convert.ToString(t[4]);
+                        label20.Text = Convert.ToString(t[5]);
+                        label21.Text = Convert.ToString(t[6]);
+                        label22.Text = Convert.ToString(t[7]);
+                        label23.Text = Convert.ToString(t[8]);
+                        label24.Text = Convert.ToString(t[9]);
+                        label25.Text = Convert.ToString(t[10]);
+                        label26.Text = Convert.ToString(t[11]);
+                        label27.Text = "";
+                        label28.Text = "";
                     }
                     else
                                 if (txtmasothue.Text.Length >= 11 && txtmasothue.Text.Length < 12)
                     {
                         char[] t = txtmasothue.Text.ToCharArray();
-                        label14.Text = "";
-                        label15.Text = "";
-                        label17.Text = "";
-                        label18.Text = Convert.ToString(t[0]);
-                        label19.Text = Convert.ToString(t[1]);
-                        label20.Text = Convert.ToString(t[2]);
-                        label21.Text = Convert.ToString(t[3]);
-                        label22.Text = Convert.ToString(t[4]);
-                        label23.Text = Convert.ToString(t[5]);
-                        label24.Text = Convert.ToString(t[6]);
-                        label25.Text = Convert.ToString(t[7]);
-                        label26.Text = Convert.ToString(t[8]);
-                        label27.Text = Convert.ToString(t[9]);
-                        label28.Text = Convert.ToString(t[10]);
+                        label14.Text = Convert.ToString(t[0]);
+                        label15.Text = Convert.ToString(t[1]);
+
+                        label17.Text = Convert.ToString(t[2]);
+                        label18.Text = Convert.ToString(t[3]);
+                        label19.Text = Convert.ToString(t[4]);
+                        label20.Text = Convert.ToString(t[5]);
+                        label21.Text = Convert.ToString(t[6]);
+                        label22.Text = Convert.ToString(t[7]);
+                        label23.Text = Convert.ToString(t[8]);
+                        label24.Text = Convert.ToString(t[9]);
+                        label25.Text = Convert.ToString(t[10]);
+                        label26.Text = "";
+                        label27.Text = "";
+                        label28.Text = "";
                     }
                     else
                                     if (txtmasothue.Text.Length >= 10)
                     {
                         char[] t = txtmasothue.Text.ToCharArray();
-                        label14.Text = "";
-                        label15.Text = "";
-                        label17.Text = "";
+                        label14.Text = Convert.ToString(t[0]);
+                        label15.Text = Convert.ToString(t[1]);
 
-                        label18.Text = "";
-                        label19.Text = Convert.ToString(t[0]);
-                        label20.Text = Convert.ToString(t[1]);
-                        label21.Text = Convert.ToString(t[2]);
-                        label22.Text = Convert.ToString(t[3]);
-                        label23.Text = Convert.ToString(t[4]);
-                        label24.Text = Convert.ToString(t[5]);
-                        label25.Text = Convert.ToString(t[6]);
-                        label26.Text = Convert.ToString(t[7]);
-                        label27.Text = Convert.ToString(t[8]);
-                        label28.Text = Convert.ToString(t[9]);
+                        label17.Text = Convert.ToString(t[2]);
+                        label18.Text = Convert.ToString(t[3]);
+                        label19.Text = Convert.ToString(t[4]);
+                        label20.Text = Convert.ToString(t[5]);
+                        label21.Text = Convert.ToString(t[6]);
+                        label22.Text = Convert.ToString(t[7]);
+                        label23.Text = Convert.ToString(t[8]);
+                        label24.Text = Convert.ToString(t[9]);
+                        label25.Text = "";
+                        label26.Text = "";
+                        label27.Text = "";
+                        label28.Text = "";
                     }
 
                 }
